@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+        <p id="p_tag">skrift om tøffe ting</p>
+
+        <button id="button"><img class=cookie src="cookie.jpg" alt=""></button>
+
+        <div id="cookie">
+
+        </div>
+        
+
+    <script>
+        var knapp = document.querySelector('#button')
+        var cookie = 1;
+
+        function skriv_tekst(){
+            cookie = cookie + 1
+            document.querySelector('#cookie')(cookie)
+        }
+
+
+        //velge button
+        knapp.addEventListener('click', skriv_tekst)
+        
+
+
+    </script>
+
+
+
+</body>
+</html>
