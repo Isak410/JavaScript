@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>Guess the number</h1>   <p id="svar"></p>
+
+    <input type="text" name="" id="gjett">
+    <button id="klikk">Klikk</button>
+
+
+
+    <script>
+        var ganger = 0
+        var gjettefelt = document.querySelector('#gjett')
+        var knapp = document.querySelector('#klikk') 
+        var svar = document.querySelector('#svar')   
+        var randtall = Math.floor(Math.random() * 101);
+
+        function sjekk() {
+              
+            ganger = ganger + 1 
+            console.log(ganger)   
+            if (gjettefelt.value == randtall) {
+                svar.innerHTML = 'korrekt'
+            }   else if (gjettefelt.value<randtall){
+                svar.innerHTML = 'lavt'
+            }   else if (gjettefelt.value>randtall){
+                svar.innerHTML = 'høyt'
+            }
+                }
+     
+        
+        
+        knapp.addEventListener('click', sjekk)
+        
+        
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
