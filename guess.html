@@ -5,39 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    
+    
 </head>
 <body>
     
-    <h1>Guess the number</h1>   <p id="svar"></p>
+    <h1>Guess the number</h1>   <p id="svar"></p> 
 
     <input type="text" name="" id="gjett">
     <button id="klikk">Klikk</button>
-
+    <button id="restart">Restart</button>
+    <br>
+    <div class="linje">
+    <p id="befor"></p><p id="gang"></p><p id="etter"></p>
+    </div>
 
 
     <script>
         var ganger = 0
         var gjettefelt = document.querySelector('#gjett')
         var knapp = document.querySelector('#klikk') 
+        var restartknapp = document.querySelector('#restart') 
         var svar = document.querySelector('#svar')   
         var randtall = Math.floor(Math.random() * 101);
+        console.log (randtall)
 
         function sjekk() {
               
             ganger = ganger + 1 
             console.log(ganger)   
             if (gjettefelt.value == randtall) {
-                svar.innerHTML = 'korrekt'
+                svar.innerHTML = 'korrekt';
+                befor.innerHTML = 'du brukte ';
+                gang.innerHTML = ganger;
+                etter.innerHTML = ' forsøk';
             }   else if (gjettefelt.value<randtall){
-                svar.innerHTML = 'lavt'
+                svar.innerHTML = 'høyere'
             }   else if (gjettefelt.value>randtall){
-                svar.innerHTML = 'høyt'
+                svar.innerHTML = 'lavere'
             }
                 }
+
+        function restart() {
+            location.reload(true);
+            ganger = 0;
+            
+        }
      
         
         
         knapp.addEventListener('click', sjekk)
+        restartknapp.addEventListener('click', restart)
         
         
 
