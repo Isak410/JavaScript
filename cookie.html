@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body>
+<div>
+    <h1>Cookie</h1>   <p id="svar"></p> 
+
+    <div class="hovedal">
+       
+        <div class="hoved">
+            <div class="cookiebilde">
+                <button id="klikk"><img #id="cookie" src="cookie.png" alt=""></button>
+            </div>
+            <div class="upgrades">
+                <button class="upmain" id="up1">1<alt=""></button>
+                <button class="upmain" id="up2">2<alt=""></button>
+                <button class="upmain" id="up3">3<alt=""></button>
+                <button class="upmain" id="up4">4<alt=""></button>
+                <button class="upmain" id="up5">5<alt=""></button>
+            </div>
+        </div>
+    <p id="befor"></p> 
+    </div>
+
+</div>
+
+
+
+
+    <script>
+
+        var clickdamage = 1
+
+        var kjeks = 0
+        var gjettefelt = document.querySelector('#gjett')
+        var knapp = document.querySelector('#klikk') 
+        var knappup1 = document.querySelector('#up1') 
+        var knappup2 = document.querySelector('#up2') 
+        var knappup3 = document.querySelector('#up3') 
+        var knappup4 = document.querySelector('#up4') 
+        var knappup5 = document.querySelector('#up5') 
+        var restartknapp = document.querySelector('#restart') 
+        var svar = document.querySelector('#svar')   
+        var randtall = Math.floor(Math.random() * 101);
+        console.log (randtall)
+
+        
+
+        function upgrade1() {
+            if (kjeks>100) {
+                clickdamage = clickdamage+1  
+                befor.innerHTML = kjeks
+            } 
+        }
+
+        function upgrade2() {
+            if (kjeks>500) {
+                clickdamage  = clickdamage+ 5
+                befor.innerHTML = kjeks
+            }        
+        }
+
+        function upgrade3() {
+            if (kjeks>5000) {
+                clickdamage  = clickdamage+ 20
+                befor.innerHTML = kjeks
+            }    
+        }
+
+        function upgrade4() {
+            if (kjeks>15000) {
+                clickdamage  = clickdamage+ 100
+                befor.innerHTML = kjeks
+            }      
+        }
+
+        function upgrade5() {
+            if (kjeks>60000) {
+                clickdamage  = clickdamage+ 500
+                befor.innerHTML = kjeks
+            }       
+        }
+
+        function sjekk() {
+            kjeks = kjeks + clickdamage 
+            console.log(kjeks)
+            befor.innerHTML = kjeks;
+        }
+
+        knapp.addEventListener('click', sjekk)
+        knappup1.addEventListener('click', upgrade1)
+        knappup2.addEventListener('click', upgrade2)
+        knappup3.addEventListener('click', upgrade3)
+        knappup4.addEventListener('click', upgrade4)
+        knappup5.addEventListener('click', upgrade5)
+
+        
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
