@@ -17,7 +17,7 @@
         <div class="hoved">
         
             <div class="cookiebilde">
-                <button id="klikk"><img #id="cookie" src="cookie.png" alt=""></button>
+                <button id="klikk"><img id="cookie" src="cookie.png" alt=""></button>
             </div>
             <div class="upgrades">
                 <button class="upmain" id="up1">+1 dpc <br>min. clicks 100<br><p id="up1d"></p><alt=""></button>
@@ -59,8 +59,6 @@
         var knappup10 = document.querySelector('#up10') 
         var restartknapp = document.querySelector('#restart') 
         var svar = document.querySelector('#svar')   
-        var randtall = Math.floor(Math.random() * 101);
-        console.log (randtall)
 
         var up1k = 0
         var up2k = 0
@@ -79,42 +77,45 @@
             if (up1k == 0) {
                 up1k = up1k+1
                 if (kjeks>100) {
-                clickdamage = clickdamage+1  
-                kjeks = kjeks-100
-                befor.innerHTML = kjeks
-                } 
-            }   else {
-            up1d.innerHTML = "du har ikke nok kjeks"
-            up1k = 0  
-        }
+                    clickdamage = clickdamage+1  
+                    kjeks = kjeks-100
+                    befor.innerHTML = kjeks
+                    up1d.innerHTML = ""
+                } else {
+                    up1d.innerHTML = "du har ikke nok kjeks"
+                    up1k = 0 
+                }    
+            }
         }
 
         function upgrade2() {
             if (up2k == 0) {
                 up2k = up2k+1
-            if (kjeks>500) {
-                clickdamage  = clickdamage+ 5
-                kjeks = kjeks-500
-                befor.innerHTML = kjeks
+                if (kjeks>500) {
+                    clickdamage  = clickdamage+ 5
+                    kjeks = kjeks-500
+                    befor.innerHTML = kjeks
+                    up2d.innerHTML = ""
+                }else {
+                    up2d.innerHTML = "du har ikke nok kjeks"
+                    up2k = 0
+                }    
             }
-        }   else {
-            up2d.innerHTML = "du har ikke nok kjeks"
-            up2k = 0 
-        }
         }
 
         function upgrade3() {
             if (up3k == 0) {
                 up3k = up3k+1
-            if (kjeks>5000) {
-                clickdamage  = clickdamage+ 20
-                kjeks = kjeks-5000
-                befor.innerHTML = kjeks
-            } 
-        }   else {
-            up3d.innerHTML = "du har ikke nok kjeks"
-            up3k = 0 
-        }   
+                if (kjeks>5000) {
+                    clickdamage  = clickdamage+ 20
+                    kjeks = kjeks-5000
+                    befor.innerHTML = kjeks
+                    up3d.innerHTML = ""
+                } else {
+                    up3d.innerHTML = "du har ikke nok kjeks"
+                    up3k = 0 
+                }   
+            }   
         }
 
         function upgrade4() {
@@ -124,11 +125,12 @@
                 clickdamage  = clickdamage+ 100
                 kjeks = kjeks-15000
                 befor.innerHTML = kjeks
-            }      
-        }   else {
-            up4d.innerHTML = "du har ikke nok kjeks"
-            up4k = 0 
-        }
+                up4d.innerHTML = ""
+            } else {
+                up4d.innerHTML = "du har ikke nok kjeks"
+                up4k = 0      
+                }   
+            }
         }
 
         function upgrade5() {
@@ -138,11 +140,12 @@
                 clickdamage  = clickdamage+ 500
                 kjeks = kjeks-60000
                 befor.innerHTML = kjeks
-            }       
-        }   else {
-            up5d.innerHTML = "du har ikke nok kjeks"
-            up5k = 0 
-        }
+                up5d.innerHTML = ""
+            } else {
+                up5d.innerHTML = "du har ikke nok kjeks"
+                up5k = 0      
+                }    
+            }
         }
 
         function upgrade6() {
@@ -184,6 +187,11 @@
             kjeks = kjeks + clickdamage 
             console.log(kjeks)
             befor.innerHTML = kjeks;
+            up1d.innerHTML = ""
+            up2d.innerHTML = ""
+            up3d.innerHTML = ""
+            up4d.innerHTML = ""
+            up5d.innerHTML = ""
         }
 
         knapp.addEventListener('click', sjekk)
