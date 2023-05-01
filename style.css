@@ -13,6 +13,12 @@ p {
 .hoved {
   display: flex;
   flex-direction: row;
+  font-size: larger;
+}
+
+.befor {
+  display: flex;
+  flex-direction: row;
 }
 
 #cookie {
@@ -26,6 +32,11 @@ p {
 }
 
 .upgrades {
+  display: flex;
+  flex-direction: column;
+}
+
+.upgrades1 {
   display: flex;
   flex-direction: column;
 }
@@ -87,9 +98,5 @@ h1 {
 
   }
 
-.befor {
-  display: flex;
-  flex-direction: row;
-}
 
 

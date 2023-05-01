@@ -15,18 +15,26 @@
     <div class="hovedal">
     <h1>CookieClicker</h1>    <p id="svar"></p>    
         <div class="hoved">
+        
             <div class="cookiebilde">
                 <button id="klikk"><img #id="cookie" src="cookie.png" alt=""></button>
             </div>
             <div class="upgrades">
-                <button class="upmain" id="up1">+1 dpc <br>min. clicks 100<alt=""></button>
-                <button class="upmain" id="up2">+5 dpc <br>min. clicks 500<alt=""></button>
-                <button class="upmain" id="up3">+20 dpc <br>min. clicks 5000<alt=""></button>
-                <button class="upmain" id="up4">+100 dpc <br>min. clicks 15000<alt=""></button>
-                <button class="upmain" id="up5">+500 dpc <br>min. clicks 60000<alt=""></button>
+                <button class="upmain" id="up1">+1 dpc <br>min. clicks 100<br><p id="up1d"></p><alt=""></button>
+                <button class="upmain" id="up2">+5 dpc <br>min. clicks 500<br><p id="up2d"></p<alt=""></button>
+                <button class="upmain" id="up3">+20 dpc <br>min. clicks 5000<br><p id="up3d"></p<alt=""></button>
+                <button class="upmain" id="up4">+100 dpc <br>min. clicks 15000<br><p id="up4d"></p<alt=""></button>
+                <button class="upmain" id="up5">+500 dpc <br>min. clicks 60000<br><p id="up5d"></p<alt=""></button>
             </div>
+            <!--<div class="upgrades1">
+                <button class="upmain" id="up6">+2500 dpc <br>min. clicks 500000<alt=""></button>
+                <button class="upmain" id="up7">+10000 dpc <br>min. clicks 5000000<alt=""></button>
+                <button class="upmain" id="up8">+75000 dpc <br>min. clicks 50000000<alt=""></button>
+                <button class="upmain" id="up9">+100000 dpc <br>min. clicks 900000000<alt=""></button>
+                <button class="upmain" id="up10">+500000 dpc <br>min. clicks 90000000000<alt=""></button>
+            </div> -->
+        <p id="befor">0</p>
         </div>
-    <p id="befor"></p> 
     </div>
 
 </div>
@@ -43,45 +51,131 @@
         var knappup2 = document.querySelector('#up2') 
         var knappup3 = document.querySelector('#up3') 
         var knappup4 = document.querySelector('#up4') 
-        var knappup5 = document.querySelector('#up5') 
+        var knappup5 = document.querySelector('#up5')
+        var knappup6 = document.querySelector('#up6') 
+        var knappup7 = document.querySelector('#up7') 
+        var knappup8 = document.querySelector('#up8') 
+        var knappup9 = document.querySelector('#up9') 
+        var knappup10 = document.querySelector('#up10') 
         var restartknapp = document.querySelector('#restart') 
         var svar = document.querySelector('#svar')   
         var randtall = Math.floor(Math.random() * 101);
         console.log (randtall)
 
+        var up1k = 0
+        var up2k = 0
+        var up3k = 0
+        var up4k = 0
+        var up5k = 0
+        var up6k = 0
+        var up7k = 0
+        var up8k = 0
+        var up9k = 0
+        var up10k = 0
         
 
         function upgrade1() {
-            if (kjeks>100) {
+            
+            if (up1k == 0) {
+                up1k = up1k+1
+                if (kjeks>100) {
                 clickdamage = clickdamage+1  
+                kjeks = kjeks-100
+                befor.innerHTML = kjeks
+                } 
+            }   else {
+            up1d.innerHTML = "du har ikke nok kjeks"
+            up1k = 0  
+        }
+        }
+
+        function upgrade2() {
+            if (up2k == 0) {
+                up2k = up2k+1
+            if (kjeks>500) {
+                clickdamage  = clickdamage+ 5
+                kjeks = kjeks-500
+                befor.innerHTML = kjeks
+            }
+        }   else {
+            up2d.innerHTML = "du har ikke nok kjeks"
+            up2k = 0 
+        }
+        }
+
+        function upgrade3() {
+            if (up3k == 0) {
+                up3k = up3k+1
+            if (kjeks>5000) {
+                clickdamage  = clickdamage+ 20
+                kjeks = kjeks-5000
+                befor.innerHTML = kjeks
+            } 
+        }   else {
+            up3d.innerHTML = "du har ikke nok kjeks"
+            up3k = 0 
+        }   
+        }
+
+        function upgrade4() {
+            if (up4k == 0) {
+                up4k = up4k+1
+            if (kjeks>15000) {
+                clickdamage  = clickdamage+ 100
+                kjeks = kjeks-15000
+                befor.innerHTML = kjeks
+            }      
+        }   else {
+            up4d.innerHTML = "du har ikke nok kjeks"
+            up4k = 0 
+        }
+        }
+
+        function upgrade5() {
+            if (up5k == 0) {
+                up5k = up5k+1
+            if (kjeks>60000) {
+                clickdamage  = clickdamage+ 500
+                kjeks = kjeks-60000
+                befor.innerHTML = kjeks
+            }       
+        }   else {
+            up5d.innerHTML = "du har ikke nok kjeks"
+            up5k = 0 
+        }
+        }
+
+        function upgrade6() {
+            if (kjeks>500000) {
+                clickdamage = clickdamage+2500
                 befor.innerHTML = kjeks
             } 
         }
 
-        function upgrade2() {
-            if (kjeks>500) {
-                clickdamage  = clickdamage+ 5
+        function upgrade7() {
+            if (kjeks>5000000) {
+                clickdamage  = clickdamage+ 10000
                 befor.innerHTML = kjeks
             }        
         }
 
-        function upgrade3() {
-            if (kjeks>5000) {
-                clickdamage  = clickdamage+ 20
+        function upgrade8() {
+            if (kjeks>50000000) {
+                clickdamage  = clickdamage+ 75000
                 befor.innerHTML = kjeks
             }    
         }
 
-        function upgrade4() {
-            if (kjeks>15000) {
-                clickdamage  = clickdamage+ 100
+        function upgrade9() {
+            if (kjeks>900000000) {
+                clickdamage  = clickdamage+ 100000
                 befor.innerHTML = kjeks
             }      
         }
 
-        function upgrade5() {
-            if (kjeks>60000) {
-                clickdamage  = clickdamage+ 500
+        function upgrade10() {
+            if (kjeks>90000000000) {
+                clickdamage  = clickdamage+ 500000
                 befor.innerHTML = kjeks
             }       
         }
@@ -98,8 +192,12 @@
         knappup3.addEventListener('click', upgrade3)
         knappup4.addEventListener('click', upgrade4)
         knappup5.addEventListener('click', upgrade5)
+        knappup6.addEventListener('click', upgrade6)
+        knappup7.addEventListener('click', upgrade7)
+        knappup8.addEventListener('click', upgrade8)
+        knappup9.addEventListener('click', upgrade9)
+        knappup10.addEventListener('click', upgrade10)
 
-        
     </script>
 </body>
 </html>
