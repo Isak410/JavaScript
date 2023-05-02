@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookieClicker</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body>
+
+
+    
+<div class="center">
+    
+
+    <div class="hovedal">
+    <h1>AubergineClicker</h1>    <p id="svar"></p>   
+    <h2>(dpc = damage per click)</h3> 
+        <div class="hoved">
+        
+            <div class="cookiebilde">
+                <button id="klikk"><img id="cookie" src="cookie.png" alt=""></button>
+            </div>
+            <div class="upgrades">
+                <button class="upmain" id="up1"><p>+1 dpc <br>min. clicks: 100</p><p id="uplv1">Lvl. 0</p><p id="up1d"></p><alt=""></button>
+                <button class="upmain" id="up2"><p>+5 dpc <br>min. clicks: 500</p><p id="uplv2">Lvl. 0</p><p id="up2d"></p<alt=""></button>
+                <button class="upmain" id="up3"><p>+20 dpc <br>min. clicks: 5000</p><p id="uplv3">Lvl. 0</p><p id="up3d"></p<alt=""></button>
+                <button class="upmain" id="up4"><p>+100 dpc <br>min. clicks: 15000</p><p id="uplv4">Lvl. 0</p><p id="up4d"></p<alt=""></button>
+                <button class="upmain" id="up5"><p>+500 dpc <br>min. clicks: 60000</p><p id="uplv5">Lvl. 0</p><p id="up5d"></p<alt=""></button>
+            </div>
+        <div class="abds">
+        <p id="befor">Aubergines: 0</p> <br>
+        <p id="tdpc">Total Dpc: 1</p>
+        </div>
+        </div>
+    </div>
+
+</div>
+
+
+    <script>
+
+        var clickdamage = 1
+        var kjeks = 0
+
+        var knapp = document.querySelector('#klikk') 
+
+        var knappup1 = document.querySelector('#up1') 
+        var knappup2 = document.querySelector('#up2') 
+        var knappup3 = document.querySelector('#up3') 
+        var knappup4 = document.querySelector('#up4') 
+        var knappup5 = document.querySelector('#up5')
+
+        //var restartknapp = document.querySelector('#restart') 
+        //var svar = document.querySelector('#svar')   
+
+        var up1k = 0
+        var up2k = 0
+        var up3k = 0
+        var up4k = 0
+        var up5k = 0
+
+        function upgrade1() {
+                
+                if (kjeks>100) {
+                    up1k = up1k+1
+                    clickdamage = clickdamage+1  
+                    kjeks = kjeks-100
+                    befor.innerHTML = "Aubergines: "+kjeks
+                    up1d.innerHTML = ""
+                    uplv1.innerHTML = "Lvl. "+up1k
+                    tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+                } else {
+                    up1d.innerHTML = "Not enough Aubergines"
+                }    
+            }
+
+        function upgrade2() {
+                
+                if (kjeks>500) {
+                    up2k = up2k+5
+                    clickdamage  = clickdamage+ 5
+                    kjeks = kjeks-500
+                    befor.innerHTML = "Aubergines: "+kjeks
+                    up2d.innerHTML = ""
+                    uplv2.innerHTML = "Lvl. "+up2k
+                    tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+                }else {
+                    up2d.innerHTML = "Not enough Aubergines"
+                }    
+            }
+
+        function upgrade3() {
+                
+                if (kjeks>5000) {
+                    up3k = up3k+20
+                    clickdamage  = clickdamage+ 20
+                    kjeks = kjeks-5000
+                    befor.innerHTML = "Aubergines: "+kjeks
+                    up3d.innerHTML = ""
+                    uplv3.innerHTML = "Lvl. "+up3k
+                    tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+                } else {
+                    up3d.innerHTML = "Not enough Aubergines"
+                }   
+            }
+
+        function upgrade4() {
+                
+                if (kjeks>15000) {
+                    up4k = up4k+100
+                    clickdamage  = clickdamage+ 100
+                    kjeks = kjeks-15000
+                    befor.innerHTML = "Aubergines: "+kjeks
+                    up4d.innerHTML = ""
+                    uplv4.innerHTML = "Lvl. "+up4k
+                    tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+                } else {
+                    up4d.innerHTML = "Not enough Aubergines"
+                }   
+            }
+
+        function upgrade5() {
+                
+                if (kjeks>60000) {
+                    up5k = up5k+500
+                    clickdamage  = clickdamage+ 500
+                    kjeks = kjeks-60000
+                    befor.innerHTML = "Aubergines: "+kjeks
+                    up5d.innerHTML = ""
+                    uplv5.innerHTML = "Lvl. "+up5k
+                    tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k)
+                } else {
+                    up5d.innerHTML = "Not enough Aubergines"
+                }    
+            }
+
+        
+        function sjekk() {
+            kjeks = kjeks + clickdamage 
+            console.log(kjeks)
+            befor.innerHTML = "Aubergines: "+kjeks
+            up1d.innerHTML = ""
+            up2d.innerHTML = ""
+            up3d.innerHTML = ""
+            up4d.innerHTML = ""
+            up5d.innerHTML = ""
+        }
+
+        knapp.addEventListener('click', sjekk)
+        knappup1.addEventListener('click', upgrade1)
+        knappup2.addEventListener('click', upgrade2)
+        knappup3.addEventListener('click', upgrade3)
+        knappup4.addEventListener('click', upgrade4)
+        knappup5.addEventListener('click', upgrade5)
+
+    </script>
+
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+
+</body>
+</html>
