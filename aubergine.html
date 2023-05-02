@@ -48,6 +48,7 @@
 
         var clickdamage = 1
         var kjeks = 0
+        var clickactive = false
 
         var knapp = document.querySelector('#klikk') 
 
@@ -184,8 +185,20 @@
                 }    
             }
 
+            
+
+            if (clickactive == true) {
+                ticks++
+                timer.innerHTML = "Tid: "+ticks+" Sekunder"
+            }  
         
-        function sjekk() {
+            
+            intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
+
+
+
+function sjekk() {
+            clickactive = true
             kjeks = kjeks + clickdamage 
             befor.innerHTML = "Aubergines: "+kjeks
             up1d.innerHTML = ""
@@ -194,6 +207,16 @@
             up4d.innerHTML = ""
             up5d.innerHTML = ""
         }
+
+
+
+
+
+
+
+
+        
+        
 
         knapp.addEventListener('click', sjekk)
         knappup1.addEventListener('click', upgrade1)
