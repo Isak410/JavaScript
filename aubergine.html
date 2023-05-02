@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CookieClicker</title>
+    <title>AubergineClicker</title>
     <link rel="stylesheet" href="style.css">
     
     
@@ -16,7 +16,7 @@
     
 
     <div class="hovedal">
-    <h1>AubergineClicker</h1>    <p id="svar"></p>   
+    <h1>AubergineClicker</h1> 
     <h2>(dpc = damage per click)</h3> 
         <div class="hoved">
         
@@ -33,6 +33,8 @@
         <div class="abds">
         <p id="befor">Aubergines: 0</p> <br>
         <p id="tdpc">Total Dpc: 1</p>
+        <button id="ascend">Ascend</button>
+        <p id="score">Score: 0</p>
         </div>
         </div>
     </div>
@@ -41,6 +43,8 @@
 
 
     <script>
+
+        var audio1 = new Audio('rizz.mp3');
 
         var clickdamage = 1
         var kjeks = 0
@@ -53,7 +57,7 @@
         var knappup4 = document.querySelector('#up4') 
         var knappup5 = document.querySelector('#up5')
 
-        //var restartknapp = document.querySelector('#restart') 
+        var restartknapp = document.querySelector('#ascend') 
         //var svar = document.querySelector('#svar')   
 
         var up1k = 0
@@ -62,15 +66,54 @@
         var up4k = 0
         var up5k = 0
 
+        var up1v = 0
+        var up2v = 0
+        var up3v = 0
+        var up4v = 0
+        var up5v = 0
+
+        var scorea = 0
+
+        function ascend() {
+            scorea = 
+            
+            kjeks = 0
+
+            audio1.play();
+            
+            clickdamage = 1
+            uplv1.innerHTML = "Lvl. 0"
+            uplv2.innerHTML = "Lvl. 0"
+            uplv3.innerHTML = "Lvl. 0"
+            uplv4.innerHTML = "Lvl. 0"
+            uplv5.innerHTML = "Lvl. 0"
+            tdpc.innerHTML = "Total Dpc: 1"
+            befor.innerHTML = "Aubergines: 0"
+            
+            up1k = 0
+            up1v = 0
+            up2k = 0
+            up2v = 0
+            up3k = 0
+            up3v = 0
+            up4k = 0
+            up4v = 0
+            up5k = 0
+            up5v = 0
+
+            
+        }
+
         function upgrade1() {
                 
                 if (kjeks>100) {
                     up1k = up1k+1
+                    up1v = up1v+1
                     clickdamage = clickdamage+1  
                     kjeks = kjeks-100
                     befor.innerHTML = "Aubergines: "+kjeks
                     up1d.innerHTML = ""
-                    uplv1.innerHTML = "Lvl. "+up1k
+                    uplv1.innerHTML = "Lvl. "+up1v
                     tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
                 } else {
                     up1d.innerHTML = "Not enough Aubergines"
@@ -81,11 +124,12 @@
                 
                 if (kjeks>500) {
                     up2k = up2k+5
+                    up2v = up2v+1
                     clickdamage  = clickdamage+ 5
                     kjeks = kjeks-500
                     befor.innerHTML = "Aubergines: "+kjeks
                     up2d.innerHTML = ""
-                    uplv2.innerHTML = "Lvl. "+up2k
+                    uplv2.innerHTML = "Lvl. "+up2v
                     tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
                 }else {
                     up2d.innerHTML = "Not enough Aubergines"
@@ -96,11 +140,12 @@
                 
                 if (kjeks>5000) {
                     up3k = up3k+20
+                    up3v = up3v+1
                     clickdamage  = clickdamage+ 20
                     kjeks = kjeks-5000
                     befor.innerHTML = "Aubergines: "+kjeks
                     up3d.innerHTML = ""
-                    uplv3.innerHTML = "Lvl. "+up3k
+                    uplv3.innerHTML = "Lvl. "+up3v
                     tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
                 } else {
                     up3d.innerHTML = "Not enough Aubergines"
@@ -111,11 +156,12 @@
                 
                 if (kjeks>15000) {
                     up4k = up4k+100
+                    up4v = up4v+1
                     clickdamage  = clickdamage+ 100
                     kjeks = kjeks-15000
                     befor.innerHTML = "Aubergines: "+kjeks
                     up4d.innerHTML = ""
-                    uplv4.innerHTML = "Lvl. "+up4k
+                    uplv4.innerHTML = "Lvl. "+up4v
                     tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
                 } else {
                     up4d.innerHTML = "Not enough Aubergines"
@@ -126,11 +172,12 @@
                 
                 if (kjeks>60000) {
                     up5k = up5k+500
+                    up5v = up5v+1
                     clickdamage  = clickdamage+ 500
                     kjeks = kjeks-60000
                     befor.innerHTML = "Aubergines: "+kjeks
                     up5d.innerHTML = ""
-                    uplv5.innerHTML = "Lvl. "+up5k
+                    uplv5.innerHTML = "Lvl. "+up5v
                     tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k)
                 } else {
                     up5d.innerHTML = "Not enough Aubergines"
@@ -140,7 +187,6 @@
         
         function sjekk() {
             kjeks = kjeks + clickdamage 
-            console.log(kjeks)
             befor.innerHTML = "Aubergines: "+kjeks
             up1d.innerHTML = ""
             up2d.innerHTML = ""
@@ -155,6 +201,7 @@
         knappup3.addEventListener('click', upgrade3)
         knappup4.addEventListener('click', upgrade4)
         knappup5.addEventListener('click', upgrade5)
+        restartknapp.addEventListener('click', ascend)
 
     </script>
 

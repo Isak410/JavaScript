@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="guess.css">
     
     
 </head>
@@ -18,54 +18,76 @@
     <button id="restart">Restart</button>
     <br>
     <div class="linje">
+    <p id="timer">Tid: 0 Sekunder</p>
     <p id="befor"></p><p id="gang"></p><p id="etter"></p>
+    <button id="timerstart1">Start</button><button id="timerstopp1">Avbryt</button>
     </div>
 
 
     <script>
+
+        var guessactive = false
+        var intervalID;
         var ganger = 0
         var gjettefelt = document.querySelector('#gjett')
         var knapp = document.querySelector('#klikk') 
+        var startknapp = document.querySelector('#timerstart1')
+        var stoppknapp = document.querySelector('#timerstopp1')
         var restartknapp = document.querySelector('#restart') 
         var svar = document.querySelector('#svar')   
         var randtall = Math.floor(Math.random() * 101);
+        var ticks = 0
         console.log (randtall)
 
         function sjekk() {
-              
-            ganger = ganger + 1 
-            console.log(ganger)   
-            if (gjettefelt.value == randtall) {
-                svar.innerHTML = 'korrekt';
-                befor.innerHTML = 'du brukte ';
-                gang.innerHTML = ganger;
-                etter.innerHTML = ' forsøk';
-            }   else if (gjettefelt.value<randtall){
-                svar.innerHTML = 'høyere'
-            }   else if (gjettefelt.value>randtall){
-                svar.innerHTML = 'lavere'
-            }
-                }
+
+
+        guessactive = true    
+        ganger = ganger + 1 
+        console.log(ganger)   
+        if (gjettefelt.value == randtall) {
+            guessactive = false
+            svar.innerHTML = 'korrekt';
+            befor.innerHTML = "du brukte ";
+            gang.innerHTML = ganger;
+            etter.innerHTML = " forsøk";
+        }   else if (gjettefelt.value<randtall){
+            svar.innerHTML = 'høyere'
+        }   else if (gjettefelt.value>randtall){
+            svar.innerHTML = 'lavere'
+        }
+        }
 
         function restart() {
             location.reload(true);
             ganger = 0;
             
         }
-     
-        
         
         knapp.addEventListener('click', sjekk)
         restartknapp.addEventListener('click', restart)
+
+        //definerer funksjonen
+        function myTimer() {
+            //console.log('timer tick')
+            if (guessactive == true) {
+                ticks++
+                timer.innerHTML = "Tid: "+ticks+" Sekunder"
+            }  
+        }
         
+        intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
         
 
+        //if ()
+        
 
-
-
-
-
-
+        function timerstop() {
+            clearInterval(intervalID)
+        }
+        
+    startknapp.addEventListener('click', timerstart) 
+    stoppknapp.addEventListener('click', timerstop)
 
     </script>
 
