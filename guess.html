@@ -17,10 +17,12 @@
     <button id="klikk">Klikk</button>
     <button id="restart">Restart</button>
     <br>
+    <div class="timer12">
+    <p id="timer">Tid: 0 Sekunder</p> 
     <div class="linje">
-    <p id="timer">Tid: 0 Sekunder</p>
     <p id="befor"></p><p id="gang"></p><p id="etter"></p>
-    <button id="timerstart1">Start</button><button id="timerstopp1">Avbryt</button>
+    <br>
+    </div>
     </div>
 
 
@@ -47,10 +49,8 @@
         console.log(ganger)   
         if (gjettefelt.value == randtall) {
             guessactive = false
-            svar.innerHTML = 'korrekt';
-            befor.innerHTML = "du brukte ";
-            gang.innerHTML = ganger;
-            etter.innerHTML = " forsøk";
+            befor.innerHTML = 'du brukte '+ ganger+ ' forsøk';
+            
         }   else if (gjettefelt.value<randtall){
             svar.innerHTML = 'høyere'
         }   else if (gjettefelt.value>randtall){
@@ -59,35 +59,31 @@
         }
 
         function restart() {
-            location.reload(true);
             ganger = 0;
-            
+            ticks = 0
+            befor.innerHTML = ''; 
+            timerstop()
+            timer.innerHTML = "Tid: "+ticks+" Sekunder"
+            gjettefelt.value=""
+            svar.innerHTML = ""
         }
         
         knapp.addEventListener('click', sjekk)
         restartknapp.addEventListener('click', restart)
 
-        //definerer funksjonen
         function myTimer() {
-            //console.log('timer tick')
             if (guessactive == true) {
                 ticks++
                 timer.innerHTML = "Tid: "+ticks+" Sekunder"
-            }  
-        }
+                }  
+            }
         
         intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
-        
-
-        //if ()
         
 
         function timerstop() {
             clearInterval(intervalID)
         }
-        
-    startknapp.addEventListener('click', timerstart) 
-    stoppknapp.addEventListener('click', timerstop)
 
     </script>
 
