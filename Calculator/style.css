@@ -4,13 +4,19 @@ body {
 
 p {
     font-size: 2.5em;
+    margin: 14px;
 }
 
 .main {
+  background-color: white;
     margin-top: 100px;
     text-align: left;
     border-style: solid;
     display: inline-block
+}
+
+#svar {
+  margin-left: 8px;
 }
 
 .calc {
@@ -46,7 +52,7 @@ p {
 }
 
 
-/*
+
 @keyframes move-it {
     0% {
       background-position: initial;
@@ -67,7 +73,7 @@ p {
     background-size: 350px 350px;
     animation: move-it 10s linear infinite;
   }
-  */
+  
   
 .tall1 {
 

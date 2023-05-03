@@ -9,7 +9,7 @@
 <body>
 
 <div class="main">
-    <p id="resultatmain"> Calculator</p>
+    <p id="svar">Calculator</p>
     <div class="calc">
         <!---afkjahakljfhbajlfbhakjlfhawbkjfbawhjkf-->
         <div class="linje1">
@@ -34,9 +34,9 @@
         </div>
         <!---afkjahakljfhbajlfbhakjlfhawbkjfbawhjkf-->
         <div class="linje4">
-        <button id="empt1"> a
+        <button id="empt1"> C
         <button id="tall0"> 0
-        <button id="empt2"> a
+        <button id="empt2"> C
         <button id="equals1"> =
         </div>
         <!---afkjahakljfhbajlfbhakjlfhawbkjfbawhjkf-->
@@ -73,30 +73,69 @@
     function knapp1f() {
         if (tall1 == 0) {
             tall1 = 1
-            
+            svar.innerHTML = tall1
         } else {
-            tall2 = 1
+            if (mattetegn == 1) {
+                tall2 = 1
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 1
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 1
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 1
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knapp2f() {
         if (tall1 == 0) {
             tall1 = 2
+            svar.innerHTML = tall1
         } else {
-            tall2 = 2
+            if (mattetegn == 1) {
+                tall2 = 2
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 2
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 2
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 2
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knapp3f() {
         if (tall1 == 0) {
             tall1 = 3
+            svar.innerHTML = tall1
         } else {
-            tall2 = 3
+            if (mattetegn == 1) {
+                tall2 = 3
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 3
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 3
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 3
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knappplussf() {
         mattetegn = 1
+        svar.innerHTML = tall1+" +"
     }
 
     ////
@@ -104,29 +143,69 @@
     function knapp4f() {
         if (tall1 == 0) {
             tall1 = 4
+            svar.innerHTML = tall1
         } else {
-            tall2 = 4
+            if (mattetegn == 1) {
+                tall2 = 4
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 4
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 4
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 4
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knapp5f() {
         if (tall1 == 0) {
             tall1 = 5
+            svar.innerHTML = tall1
         } else {
-            tall2 = 5
+            if (mattetegn == 1) {
+                tall2 = 5
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 5
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 5
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 5
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knapp6f() {
         if (tall1 == 0) {
             tall1 = 6
+            svar.innerHTML = tall1
         } else {
-            tall2 = 6
+            if (mattetegn == 1) {
+                tall2 = 6
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 6
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 6
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 6
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knappminusf() {
         mattetegn = 2
+        svar.innerHTML = tall1+" -"
     }
 
     ////
@@ -134,53 +213,120 @@
     function knapp7f() {
         if (tall1 == 0) {
             tall1 = 7
+            svar.innerHTML = tall1
         } else {
-            tall2 = 7
+            if (mattetegn == 1) {
+                tall2 = 7
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 7
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 7
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 7
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knapp8f() {
         if (tall1 == 0) {
             tall1 = 8
+            svar.innerHTML = tall1
         } else {
-            tall2 = 8
+            if (mattetegn == 1) {
+                tall2 = 8
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 8
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 8
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 8
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knapp9f() {
         if (tall1 == 0) {
             tall1 = 9
+            svar.innerHTML = tall1
         } else {
-            tall2 = 9
+            if (mattetegn == 1) {
+                tall2 = 9
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 9
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 9
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 9
+                svar.innerHTML = tall1
+            }
         }
     }
 
     function knappmultiply1f() {
         mattetegn = 3
+        svar.innerHTML = tall1+" *"
     }
 
     ////
 
     function knappempt1f() {
-        
+        tall1 = 0
+        tall2 = 0
+        mattetegn = 0
+        svar.innerHTML = "Calculator"
     }
 
     function knapp0f() {
-        
+        if (tall1 == 0) {
+            tall1 = 0
+            svar.innerHTML = tall1
+        } else {
+            if (mattetegn == 1) {
+                tall2 = 0
+                svar.innerHTML = tall1 + " + " + tall2
+            }else if (mattetegn == 2) {
+                tall2 = 0
+                svar.innerHTML = tall1 + " - " + tall2
+            }else if (mattetegn == 3) {
+                tall2 = 0
+                svar.innerHTML = tall1 + " * " + tall2    
+            } else {
+                tall1 = 0
+                svar.innerHTML = tall1
+            }
+        }
     }
+    
 
     function knappempt2f() {
-        
+        tall1 = 0
+        tall2 = 0
+        mattetegn = 0
+        svar.innerHTML = "Calculator"
     }
 
     function knappequalsf() {
         if (mattetegn == 0) {
         } else if (mattetegn == 1){
             resultat = tall1 + tall2
+            svar.innerHTML = resultat
         } else if (mattetegn == 2) {
             resultat = tall1 - tall2
+            svar.innerHTML = resultat
         } else if (mattetegn == 3) {
             resultat = tall1 * tall2
+            svar.innerHTML = resultat
         }
         console.log (resultat)
     }
