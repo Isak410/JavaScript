@@ -1,0 +1,134 @@
+body {
+    text-align: center;
+}
+
+p {
+    font-size: 2.5em;
+}
+
+.main {
+    margin-top: 100px;
+    text-align: left;
+    border-style: solid;
+    display: inline-block
+}
+
+.calc {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.calc div {
+    height: 150px;
+    width: 500px;
+    
+}
+
+.linje1 button {
+    width: 25%;
+    height: 100%;
+}
+
+.linje2 button {
+    width: 25%;
+    height: 100%;
+}
+
+.linje3 button {
+    width: 25%;
+    height: 100%;
+}
+
+.linje4 button {
+    width: 25%;
+    height: 100%;
+}
+
+
+/*
+@keyframes move-it {
+    0% {
+      background-position: initial;
+    }
+    100% {
+      background-position: 350px 0px;
+    }
+  }
+  
+  body {  
+    background: repeating-linear-gradient(
+    90deg,
+    #296d91,
+    #296d91 5%,
+    #255e7c 5%,
+    #255e7c 10%
+  );
+    background-size: 350px 350px;
+    animation: move-it 10s linear infinite;
+  }
+  */
+  
+.tall1 {
+
+}
+
+.tall2 {
+
+}
+
+.tall3 {
+
+}
+
+.pluss1 {
+
+}
+
+.tall4 {
+
+}
+
+.tall5 {
+
+}
+
+.tall6 {
+
+}
+
+.minus1 {
+
+}
+
+.tall7 {
+
+}
+
+.tall8 {
+
+}
+
+.tall9 {
+
+}
+
+.multiply1 {
+
+}
+
+.empt1 {
+
+}
+
+.tall0 {
+
+}
+
+.empt2 {
+
+}
+
+.equals1 {
+
+}
