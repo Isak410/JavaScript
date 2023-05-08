@@ -41,16 +41,17 @@
         var ticks = 0
         console.log (randtall)
 
+
         function sjekk() {
 
 
         guessactive = true    
         ganger = ganger + 1 
-        console.log(ganger)   
         if (gjettefelt.value == randtall) {
             guessactive = false
             befor.innerHTML = 'du brukte '+ ganger+ ' forsøk';
-            
+            svar.innerHTML = ''
+            gjettefelt.value=''
         }   else if (gjettefelt.value<randtall){
             svar.innerHTML = 'høyere'
         }   else if (gjettefelt.value>randtall){
@@ -59,13 +60,17 @@
         }
 
         function restart() {
-            ganger = 0;
-            ticks = 0
-            befor.innerHTML = ''; 
-            timerstop()
-            timer.innerHTML = "Tid: "+ticks+" Sekunder"
-            gjettefelt.value=""
-            svar.innerHTML = ""
+            //if (guessactive = false) {
+                svar.innerHTML = '';
+                ganger = 0;
+                ticks = 0;
+                befor.innerHTML = ''; 
+                timer.innerHTML = "Tid: "+ticks+" Sekunder";
+                gjettefelt.value="";
+                svar.innerHTML = "";
+                randtall = Math.floor(Math.random() * 101);
+                console.log (randtall);
+            //}
         }
         
         knapp.addEventListener('click', sjekk)
@@ -80,10 +85,6 @@
         
         intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
         
-
-        function timerstop() {
-            clearInterval(intervalID)
-        }
 
     </script>
 
