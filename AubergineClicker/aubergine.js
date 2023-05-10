@@ -21,6 +21,9 @@ var EL_knappdps3 = document.querySelector('#dps3')
 var EL_knappdps4 = document.querySelector('#dps4') 
 var EL_knappdps5 = document.querySelector('#dps5')
 
+var EL_knappsave = document.querySelector('#save')
+var EL_knappload = document.querySelector('#load')
+
 var restartknapp = document.querySelector('#ascend') 
 //var svar = document.querySelector('#svar')   
 
@@ -165,12 +168,7 @@ function upgrade5() {
         }
 
 
-        function update_HTML(){
-            var rounded = kjeks.toFixed(1);
-            befor.innerHTML = "Aubergines: "+rounded
-            var roundeddps = dps.toFixed(1);
-            dps13.innerHTML = "Total Dps: "+ roundeddps
-        }
+        
 
         function dps1() {
             if (kjeks>up1cost) {
@@ -223,6 +221,9 @@ function upgrade5() {
         }
 
 
+        
+
+
 
     function sjekk() {
         kjeks = kjeks + clickdamage 
@@ -240,7 +241,66 @@ function upgrade5() {
         kjeks = kjeks + dps
         update_HTML()
     }  
+    
+    function save() {
+        localStorage.kjeksST = kjeks
+        localStorage.dpsST = dps
+        localStorage.clickdamageST = clickdamage
+        localStorage.ticksST = ticks
 
+        localStorage.up1kST = up1k
+        localStorage.up2kST = up2k
+        localStorage.up3kST = up3k
+        localStorage.up4kST = up4k
+        localStorage.up5kST = up5k
+
+        localStorage.up1vST = up1v
+        localStorage.up2vST = up2v
+        localStorage.up3vST = up3v
+        localStorage.up4vST = up4v
+        localStorage.up5vST = up5v
+
+        localStorage.vdpslv1ST = vdpslv1
+        localStorage.vdpslv2ST = vdpslv2
+        localStorage.vdpslv3ST = vdpslv3
+        localStorage.vdpslv4ST = vdpslv4
+        localStorage.vdpslv5ST = vdpslv5
+    }
+
+    function load() {
+        kjeks = localStorage.kjeksST
+        dps = localStorage.dpsST
+        clickdamage = localStorage.clickdamageST
+        ticks = localStorage.ticksST
+
+        up1k = localStorage.up1kST
+        up2k = localStorage.up2kST
+        up3k = localStorage.up3kST
+        up4k = localStorage.up4kST
+        up5k = localStorage.up5kST
+
+        up1v = localStorage.up1vST
+        up2v = localStorage.up2vST 
+        up3v = localStorage.up3vST
+        up4v = localStorage.up4vST
+        up5v = localStorage.up5vST
+
+        vdpslv1 = localStorage.vdpslv1ST
+        vdpslv2 = localStorage.vdpslv2ST
+        vdpslv3 = localStorage.vdpslv3ST
+        vdpslv4 = localStorage.vdpslv4ST
+        vdpslv5 = localStorage.vdpslv5ST
+
+        befor.innerHTML = (kjeks)
+    }
+    
+    function update_HTML(){
+        var rounded = kjeks.toFixed(1);
+        befor.innerHTML = "Aubergines: "+rounded
+        var roundeddps = dps.toFixed(1);
+        dps13.innerHTML = "Total Dps: "+ roundeddps
+    }
+    
     EL_knapp.addEventListener('click', sjekk)
     EL_knappup1.addEventListener('click', upgrade1)
     EL_knappup2.addEventListener('click', upgrade2)
@@ -254,5 +314,8 @@ function upgrade5() {
     EL_knappdps4.addEventListener('click', dps4)
     EL_knappdps5.addEventListener('click', dps5)
     //restartknapp.addEventListener('click', ascend)
+
+    EL_knappsave.addEventListener('click', save)
+    EL_knappload.addEventListener('click', load)
     
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
