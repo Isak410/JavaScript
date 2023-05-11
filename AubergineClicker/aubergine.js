@@ -227,19 +227,20 @@ function upgrade5() {
 
     function sjekk() {
         kjeks = kjeks + clickdamage 
-        var rounded = kjeks.toFixed(1);
-        befor.innerHTML = "Aubergines: "+rounded
+        //var rounded = kjeks.toFixed(1);
+        befor.innerHTML = "Aubergines: "+Number(kjeks)
         up1d.innerHTML = ""
         up2d.innerHTML = ""
         up3d.innerHTML = ""
         up4d.innerHTML = ""
         up5d.innerHTML = ""
+        console.log(typeof(kjeks))
     }
     
     function myTimer() {
         ticks++
-        kjeks = kjeks + dps
-        update_HTML()
+        
+        //update_HTML()
     }  
     
     function save() {
@@ -268,37 +269,37 @@ function upgrade5() {
     }
 
     function load() {
-        kjeks = localStorage.kjeksST
-        dps = localStorage.dpsST
-        clickdamage = localStorage.clickdamageST
-        ticks = localStorage.ticksST
+        kjeks = JSON.parse(localStorage.kjeksST)
+        dps = JSON.parse(localStorage.dpsST)
+        clickdamage = JSON.parse(localStorage.clickdamageST)
+        ticks = JSON.parse(localStorage.ticksST)
 
-        up1k = localStorage.up1kST
-        up2k = localStorage.up2kST
-        up3k = localStorage.up3kST
-        up4k = localStorage.up4kST
-        up5k = localStorage.up5kST
+        up1k = JSON.parse(localStorage.up1kST)
+        up2k = JSON.parse(localStorage.up2kST)
+        up3k = JSON.parse(localStorage.up3kST)
+        up4k = JSON.parse(localStorage.up4kST)
+        up5k = JSON.parse(localStorage.up5kST)
 
-        up1v = localStorage.up1vST
-        up2v = localStorage.up2vST 
-        up3v = localStorage.up3vST
-        up4v = localStorage.up4vST
-        up5v = localStorage.up5vST
+        up1v = JSON.parse(localStorage.up1vST)
+        up2v = JSON.parse(localStorage.up2vST) 
+        up3v = JSON.parse(localStorage.up3vST)
+        up4v = JSON.parse(localStorage.up4vST)
+        up5v = JSON.parse(localStorage.up5vST)
 
-        vdpslv1 = localStorage.vdpslv1ST
-        vdpslv2 = localStorage.vdpslv2ST
-        vdpslv3 = localStorage.vdpslv3ST
-        vdpslv4 = localStorage.vdpslv4ST
-        vdpslv5 = localStorage.vdpslv5ST
-
-        befor.innerHTML = (kjeks)
+        vdpslv1 = JSON.parse(localStorage.vdpslv1ST)
+        vdpslv2 = JSON.parse(localStorage.vdpslv2ST)
+        vdpslv3 = JSON.parse(localStorage.vdpslv3ST)
+        vdpslv4 = JSON.parse(localStorage.vdpslv4ST)
+        vdpslv5 = JSON.parse(localStorage.vdpslv5ST)
+        //console.log(typeof(kjeks))
+        befor.innerHTML = "Aubergines: "+Number(kjeks)
+        tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+        dpslv1.innerHTML = "Lvl. "+vdpslv1
     }
     
     function update_HTML(){
-        var rounded = kjeks.toFixed(1);
-        befor.innerHTML = "Aubergines: "+rounded
-        var roundeddps = dps.toFixed(1);
-        dps13.innerHTML = "Total Dps: "+ roundeddps
+        befor.innerHTML = "Aubergines: "+kjeks
+        dps13.innerHTML = "Total Dps: "+ dps
     }
     
     EL_knapp.addEventListener('click', sjekk)
