@@ -29,6 +29,11 @@ body {
   
 }
 
+.save1 p{
+  font-size: x-large;
+  margin: 5;
+}
+
 .saveload {
   width: 250px;
   height: 75px;

@@ -1,11 +1,14 @@
 
 var dps = 0
+var dpsr = Math.round(dps)
 var ticks = 0
+var autosavetime = 0
 
 var audio1 = new Audio('rizz.mp3');
 
 var clickdamage = 1
 var kjeks = 0
+var kjeksr = Math.round(kjeks)
 
 var EL_knapp = document.querySelector('#klikk') 
 
@@ -20,9 +23,11 @@ var EL_knappdps2 = document.querySelector('#dps2')
 var EL_knappdps3 = document.querySelector('#dps3') 
 var EL_knappdps4 = document.querySelector('#dps4') 
 var EL_knappdps5 = document.querySelector('#dps5')
+var EL_dps13 = document.querySelector('#dps13')
 
 var EL_knappsave = document.querySelector('#save')
 var EL_knappload = document.querySelector('#load')
+var EL_autosave = document.querySelector('#autosave')
 
 var restartknapp = document.querySelector('#ascend') 
 //var svar = document.querySelector('#svar')   
@@ -89,8 +94,8 @@ function upgrade1() {
             up1v = up1v+1
             clickdamage = clickdamage+1  
             kjeks = kjeks-up1cost
-            var rounded = kjeks.toFixed(1);
-            befor.innerHTML = "Aubergines: "+rounded
+            kjeksr = Math.round(kjeks)
+            befor.innerHTML = "Aubergines: "+kjeksr
             up1d.innerHTML = ""
             uplv1.innerHTML = "Lvl. "+up1v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
@@ -106,8 +111,8 @@ function upgrade2() {
             up2v = up2v+1
             clickdamage  = clickdamage+ 5
             kjeks = kjeks-up2cost
-            var rounded = kjeks.toFixed(1);
-            befor.innerHTML = "Aubergines: "+rounded
+            kjeksr = Math.round(kjeks)
+            befor.innerHTML = "Aubergines: "+kjeksr
             up2d.innerHTML = ""
             uplv2.innerHTML = "Lvl. "+up2v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
@@ -123,8 +128,8 @@ function upgrade3() {
             up3v = up3v+1
             clickdamage  = clickdamage+ 20
             kjeks = kjeks-up3cost
-            var rounded = kjeks.toFixed(1);
-            befor.innerHTML = "Aubergines: "+rounded
+            kjeksr = Math.round(kjeks)
+            befor.innerHTML = "Aubergines: "+kjeksr
             up3d.innerHTML = ""
             uplv3.innerHTML = "Lvl. "+up3v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
@@ -140,8 +145,8 @@ function upgrade4() {
             up4v = up4v+1
             clickdamage  = clickdamage+ 100
             kjeks = kjeks-up4cost
-            var rounded = kjeks.toFixed(1);
-            befor.innerHTML = "Aubergines: "+rounded
+            kjeksr = Math.round(kjeks)
+            befor.innerHTML = "Aubergines: "+kjeksr
             up4d.innerHTML = ""
             uplv4.innerHTML = "Lvl. "+up4v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
@@ -157,8 +162,8 @@ function upgrade5() {
             up5v = up5v+1
             clickdamage  = clickdamage+ 500
             kjeks = kjeks-up5cost
-            var rounded = kjeks.toFixed(1);
-            befor.innerHTML = "Aubergines: "+rounded
+            kjeksr = Math.round(kjeks)
+            befor.innerHTML = "Aubergines: "+kjeksr
             up5d.innerHTML = ""
             uplv5.innerHTML = "Lvl. "+up5v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k)
@@ -227,20 +232,25 @@ function upgrade5() {
 
     function sjekk() {
         kjeks = kjeks + clickdamage 
-        //var rounded = kjeks.toFixed(1);
-        befor.innerHTML = "Aubergines: "+Number(kjeks)
+        kjeksr = Math.round(kjeks)
+        befor.innerHTML = "Aubergines: "+kjeksr
         up1d.innerHTML = ""
         up2d.innerHTML = ""
         up3d.innerHTML = ""
         up4d.innerHTML = ""
         up5d.innerHTML = ""
-        console.log(typeof(kjeks))
     }
     
     function myTimer() {
         ticks++
-        
-        //update_HTML()
+        kjeks = kjeks + dps
+        update_HTML()
+        autosavetime = autosavetime + 1
+        autosave.innerHTML = "Last Save: " + autosavetime + " Seconds"
+        if (autosavetime>29) {
+            save()
+            autosavetime = 0
+        }
     }  
     
     function save() {
@@ -266,6 +276,11 @@ function upgrade5() {
         localStorage.vdpslv3ST = vdpslv3
         localStorage.vdpslv4ST = vdpslv4
         localStorage.vdpslv5ST = vdpslv5
+        
+        autosavetime = 0
+        autosave.innerHTML = "Last Save: " + autosavetime + " Seconds"
+
+        console.log("saved")
     }
 
     function load() {
@@ -292,14 +307,29 @@ function upgrade5() {
         vdpslv4 = JSON.parse(localStorage.vdpslv4ST)
         vdpslv5 = JSON.parse(localStorage.vdpslv5ST)
         //console.log(typeof(kjeks))
-        befor.innerHTML = "Aubergines: "+Number(kjeks)
+        befor.innerHTML = "Aubergines: "+math.round(kjeks)
         tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
         dpslv1.innerHTML = "Lvl. "+vdpslv1
+        dpslv2.innerHTML = "Lvl. "+vdpslv2
+        dpslv3.innerHTML = "Lvl. "+vdpslv3
+        dpslv4.innerHTML = "Lvl. "+vdpslv4
+        dpslv5.innerHTML = "Lvl. "+vdpslv5
+        uplv1.innerHTML = "Lvl. "+up1v
+        uplv2.innerHTML = "Lvl. "+up2v
+        uplv3.innerHTML = "Lvl. "+up3v
+        uplv4.innerHTML = "Lvl. "+up4v
+        uplv5.innerHTML = "Lvl. "+up5v
+
+
+        console.log("loaded")
     }
     
     function update_HTML(){
-        befor.innerHTML = "Aubergines: "+kjeks
-        dps13.innerHTML = "Total Dps: "+ dps
+        kjeksr = Math.round(kjeks)
+        befor.innerHTML = "Aubergines: "+kjeksr
+        dpsr = Math.round(dps)
+        var dpsr = Math.round(dps)
+        dps13.innerHTML =  "Total Dps: "+dps.toFixed(1)
     }
     
     EL_knapp.addEventListener('click', sjekk)
@@ -320,3 +350,4 @@ function upgrade5() {
     EL_knappload.addEventListener('click', load)
     
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
+    intervalID1 = setInterval(save, 30000) //kjører hvert 30sek
