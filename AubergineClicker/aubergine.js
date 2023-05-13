@@ -246,8 +246,8 @@ function upgrade5() {
         kjeks = kjeks + dps
         update_HTML()
         autosavetime = autosavetime + 1
-        autosave.innerHTML = "Last Save: " + autosavetime + " Seconds"
-        if (autosavetime>29) {
+        autosave.innerHTML = "Last Save: " + autosavetime + " Seconds (15Sec)"
+        if (autosavetime>14) {
             save()
             autosavetime = 0
         }
@@ -278,7 +278,7 @@ function upgrade5() {
         localStorage.vdpslv5ST = vdpslv5
         
         autosavetime = 0
-        autosave.innerHTML = "Last Save: " + autosavetime + " Seconds"
+        autosave.innerHTML = "Last Save: " + autosavetime + " Seconds (15Sec)"
 
         console.log("saved")
     }
@@ -319,7 +319,6 @@ function upgrade5() {
         uplv3.innerHTML = "Lvl. "+up3v
         uplv4.innerHTML = "Lvl. "+up4v
         uplv5.innerHTML = "Lvl. "+up5v
-
 
         console.log("loaded")
     }
