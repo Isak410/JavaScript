@@ -22,9 +22,86 @@ body {
   flex-direction: row;
 }
 
+.upgrades12 h3 {
+  font-size: 0,5em;
+  margin: 1px;
+  color: white;
+  text-shadow:  5px 5px 10px black;
+}
+
+.upgrades12 p {
+  color: white;
+  text-shadow:  1px 1px 5px black;
+}
+
+.upgrades12 img {
+  width: 50,5px;
+  height: 200px;
+}
+
+#up1 {
+  background-image: url("./IMG/GP__5713.JPG");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#up2 {
+  background-image: url("./IMG/GP__5723.JPG");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#up3 {
+  background-image: url("./IMG/GP__5735.JPG");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#up4 {
+  background-image: url("./IMG/GP__5738.JPG");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#up5 {
+  background-image: url("./IMG/IMG_4173.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#dps1 {
+  background-image: url("./IMG/placeholder.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#dps2 {
+  background-image: url("./IMG/placeholder.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#dps3 {
+  background-image: url("./IMG/placeholder.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#dps4 {
+  background-image: url("./IMG/placeholder.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#dps5 {
+  background-image: url("./IMG/placeholder.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 #cookie {
-  width: 905px;
-  height: 905px;
+  width: 1000px;
+  height: 1000px;
   background-color: transparent
   
 }
