@@ -1,4 +1,8 @@
+var goldonscreen = false
+var goldonscreennumber = 0
 
+var randtall = 0
+var totalcookies = 0
 var dps = 0
 var dpsr = Math.round(dps)
 var ticks = 0
@@ -10,6 +14,7 @@ var clickdamage = 1
 var kjeks = 0
 var kjeksr = Math.round(kjeks)
 
+var EL_knapphide = document.querySelector('#goldaubergine') 
 var EL_knapp = document.querySelector('#klikk') 
 
 var EL_knappup1 = document.querySelector('#up1') 
@@ -226,12 +231,10 @@ function upgrade5() {
         }
 
 
-        
-
-
 
     function sjekk() {
         kjeks = kjeks + clickdamage 
+        totalcookies = totalcookies + clickdamage
         kjeksr = Math.round(kjeks)
         befor.innerHTML = "Aubergines: "+kjeksr
         up1d.innerHTML = ""
@@ -239,17 +242,33 @@ function upgrade5() {
         up3d.innerHTML = ""
         up4d.innerHTML = ""
         up5d.innerHTML = ""
+        
+        randtall = Math.floor(Math.random() * 1000);
+        console.log(randtall)
+        if (randtall == 500) {
+            showgoldaubergine()
+        }
+        
     }
     
     function myTimer() {
         ticks++
         kjeks = kjeks + dps
+        totalcookies = totalcookies + dps
         update_HTML()
         autosavetime = autosavetime + 1
         autosave.innerHTML = "Last Save: " + autosavetime + " Seconds (15Sec)"
-        if (autosavetime>14) {
+        if (autosavetime>15) {
             save()
             autosavetime = 0
+        }
+        if (goldonscreen = true) {
+            goldonscreennumber = goldonscreennumber + 1
+            if (goldonscreennumber > 3) {
+                document.getElementById("goldaubergine").style.display = "none";
+                goldonscreennumber = 0
+                goldonscreen = false
+            }
         }
     }  
     
@@ -276,6 +295,8 @@ function upgrade5() {
         localStorage.vdpslv3ST = vdpslv3
         localStorage.vdpslv4ST = vdpslv4
         localStorage.vdpslv5ST = vdpslv5
+
+        localStorage.totalcookiesST = totalcookies
         
         autosavetime = 0
         autosave.innerHTML = "Last Save: " + autosavetime + " Seconds (15Sec)"
@@ -306,8 +327,10 @@ function upgrade5() {
         vdpslv3 = JSON.parse(localStorage.vdpslv3ST)
         vdpslv4 = JSON.parse(localStorage.vdpslv4ST)
         vdpslv5 = JSON.parse(localStorage.vdpslv5ST)
+
+        totalcookies = JSON.parse(localStorage.totalcookiesST)
         //console.log(typeof(kjeks))
-        befor.innerHTML = "Aubergines: "+math.round(kjeks)
+        befor.innerHTML = "Aubergines: "+ Math.round(kjeks)
         tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
         dpslv1.innerHTML = "Lvl. "+vdpslv1
         dpslv2.innerHTML = "Lvl. "+vdpslv2
@@ -322,15 +345,34 @@ function upgrade5() {
 
         console.log("loaded")
     }
+
+    document.getElementById("goldaubergine").style.display = "none";
     
     function update_HTML(){
         kjeksr = Math.round(kjeks)
         befor.innerHTML = "Aubergines: "+kjeksr
         dpsr = Math.round(dps)
-        var dpsr = Math.round(dps)
         dps13.innerHTML =  "Total Dps: "+dps.toFixed(1)
     }
+
+    function goldenaubergine1() {
+        kjeks = kjeks + totalcookies * 2
+        document.getElementById("goldaubergine").style.display = "none";
+        kjeksr = Math.round(kjeks)
+        befor.innerHTML = "Aubergines: "+kjeksr
+      }
+
+    function showgoldaubergine() {
+        console.log("slsdglkjs")
+        var x = Math.floor(Math.random() * (900 - 175 + 1)) + 100;
+        var y = Math.floor(Math.random() * (850 - 50 + 1)) + 50;
+        EL_knapphide.style.top = x + 'px';
+        EL_knapphide.style.left = y + 'px';
+        document.getElementById("goldaubergine").style.display = "block";
+        goldonscreen = true
+    }
     
+    EL_knapphide.addEventListener('click', goldenaubergine1)
     EL_knapp.addEventListener('click', sjekk)
     EL_knappup1.addEventListener('click', upgrade1)
     EL_knappup2.addEventListener('click', upgrade2)

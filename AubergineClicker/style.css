@@ -29,6 +29,14 @@ body {
   text-shadow:  5px 5px 10px black;
 }
 
+#goldaubergine {
+  height: 150px;
+  width: 150px;
+  z-index: 10;
+  position: absolute;
+  rotate: -36deg;
+}
+
 .upgrades12 p {
   color: white;
   text-shadow:  1px 1px 5px black;
@@ -43,6 +51,7 @@ body {
   background-image: url("./IMG/GP__5713.JPG");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  border-top: 1px solid black;
 }
 
 #up2 {
@@ -73,6 +82,7 @@ body {
   background-image: url("./IMG/placeholder.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  border-top: 1px solid black;
 }
 
 #dps2 {
@@ -99,11 +109,13 @@ body {
   background-repeat: no-repeat;
 }
 
-#cookie {
+.cookie {
   width: 1000px;
   height: 1000px;
-  background-color: transparent
-  
+  background-color: transparent;
+  border: 1px solid black;
+  border-right: 0px solid;
+  z-index: 1;
 }
 
 .save1 p{
