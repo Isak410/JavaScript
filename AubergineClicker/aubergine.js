@@ -187,7 +187,9 @@ function upgrade5() {
                 vdpslv1 = vdpslv1 + 1
                 dpslv1.innerHTML = "Lvl. "+vdpslv1
                 update_HTML()
-            }
+            } else {
+                document.querySelector('#dpsup1d').innerHTML = "Not enough Aubergines"
+                }  
         }
 
         function dps2() {
@@ -197,7 +199,9 @@ function upgrade5() {
                 vdpslv2 = vdpslv2 + 1
                 dpslv2.innerHTML = "Lvl. "+vdpslv2
                 update_HTML()
-            }
+            } else {
+                document.querySelector('#dpsup2d').innerHTML = "Not enough Aubergines"
+                }  
         }
 
         function dps3() {
@@ -207,7 +211,9 @@ function upgrade5() {
                 vdpslv3 = vdpslv3 + 1
                 dpslv3.innerHTML = "Lvl. "+vdpslv3
                 update_HTML()
-            }
+            } else {
+                document.querySelector('#dpsup3d').innerHTML = "Not enough Aubergines"
+                }  
         }
 
         function dps4() {
@@ -217,7 +223,9 @@ function upgrade5() {
                 vdpslv4 = vdpslv4 + 1
                 dpslv4.innerHTML = "Lvl. "+vdpslv4
                 update_HTML()
-            }
+            } else {
+                document.querySelector('#dpsup4d').innerHTML = "Not enough Aubergines"
+                }  
         }
 
         function dps5() {
@@ -227,7 +235,9 @@ function upgrade5() {
                 vdpslv5 = vdpslv5 + 1
                 dpslv5.innerHTML = "Lvl. "+vdpslv5
                 update_HTML()
-            }
+            } else {
+                document.querySelector('#dpsup5d').innerHTML = "Not enough Aubergines"
+                }  
         }
 
 
@@ -242,6 +252,11 @@ function upgrade5() {
         up3d.innerHTML = ""
         up4d.innerHTML = ""
         up5d.innerHTML = ""
+        document.querySelector('#dpsup1d').innerHTML = ""
+        document.querySelector('#dpsup2d').innerHTML = ""
+        document.querySelector('#dpsup3d').innerHTML = ""
+        document.querySelector('#dpsup4d').innerHTML = ""
+        document.querySelector('#dpsup5d').innerHTML = ""
         
         randtall = Math.floor(Math.random() * 1000);
         console.log(randtall)
