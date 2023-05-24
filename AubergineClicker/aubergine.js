@@ -18,6 +18,20 @@ var clickdamage = 1
 var kjeks = 0
 var kjeksr = Math.round(kjeks)
 
+var test1 = false
+var test2 = false
+var test3 = false
+var test4 = false
+var test5 = false
+
+var testint1 = 0
+var testint2 = 0
+var testint3 = 0
+var testint4 = 0
+var testint5 = 0
+
+var EL_totaldpc = document.getElementById("tdpc");
+
 var EL_knapphide = document.querySelector('#goldaubergine') 
 var EL_knapp = document.querySelector('#klikk') 
 
@@ -43,6 +57,13 @@ var EL_knappboost5 = document.querySelector('#boost5')
 var EL_knappsave = document.querySelector('#save')
 var EL_knappload = document.querySelector('#load')
 var EL_autosave = document.querySelector('#autosave')
+
+var EL_boostup1d = document.querySelector('#boostup1d')
+var EL_boostup2d = document.querySelector('#boostup1d')
+var EL_boostup3d = document.querySelector('#boostup1d')
+var EL_boostup4d = document.querySelector('#boostup1d')
+var EL_boostup5d = document.querySelector('#boostup1d')
+
 
 var restartknapp = document.querySelector('#ascend') 
 //var svar = document.querySelector('#svar')   
@@ -107,6 +128,11 @@ var up5cost = 60000
 
 function upgrade1() {
         if (kjeks>up1cost) {
+            testint1 = testint1 + 1
+            if (testint1 > 4) {
+                test1 = true
+                console.log("test1trueFLAJ")
+            }
             up1k = up1k+1
             up1v = up1v+1
             clickdamage = clickdamage+1  
@@ -254,14 +280,17 @@ function upgrade5() {
         
         
         function boost1() {
-            //console.log("goober")
+            if (test1 == true) {
             tdpc.innerHTML = "Total Dpc: "+((up1k+up2k+up3k+up4k+up5k+1)*10)
             boost1timer = 10
             boost1active = true
+            } else {
+                EL_boostup1d.innerHTML = ("Du må ha Håkon i level 5")
+            }
         }
 
 
-
+    
 
     function sjekk() {
         
@@ -282,6 +311,7 @@ function upgrade5() {
         up3d.innerHTML = ""
         up4d.innerHTML = ""
         up5d.innerHTML = ""
+        EL_boostup1d.innerHTML = ""
 
         //clear "not enough aubergines" felt
         document.querySelector('#dpsup1d').innerHTML = ""
@@ -319,10 +349,12 @@ function upgrade5() {
             }
         };
         if (boost1active == true) {
+            
             new Audio('rizz.mp3').play();
             tdpc.innerHTML = "Total Dpc: "+((up1k+up2k+up3k+up4k+up5k+1)*10)
+            EL_totaldpc.style.color = 'red';
             //console.log("boost1active true fjlahflk")
-            
+        
             realdpc = clickdamage * 10
             console.log(realdpc+"sdad")
             boost1timer = boost1timer - 1
@@ -332,7 +364,9 @@ function upgrade5() {
                 tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
                 boost1active = false
                 }
-            }  
+            }  else {
+                EL_totaldpc.style.color = 'white';
+            }
         }
     
     function save() {
