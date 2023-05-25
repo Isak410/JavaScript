@@ -2,8 +2,16 @@ var goldonscreen = false
 var goldonscreennumber = 0
 
 var boost1timer = 0
+var boost2timer = 0
+var boost3timer = 0
+var boost4timer = 0
+var boost5timer = 0
 
 var boost1active = false
+var boost2active = false
+var boost3active = false
+var boost4active = false
+var boost5active = false
 
 var randtall = 0
 var totalcookies = 0
@@ -61,14 +69,15 @@ var EL_godmode = document.querySelector('#godmode')
 var EL_autosave = document.querySelector('#autosave')
 
 var EL_boostup1d = document.querySelector('#boostup1d')
-var EL_boostup2d = document.querySelector('#boostup1d')
-var EL_boostup3d = document.querySelector('#boostup1d')
-var EL_boostup4d = document.querySelector('#boostup1d')
-var EL_boostup5d = document.querySelector('#boostup1d')
+var EL_boostup2d = document.querySelector('#boostup2d')
+var EL_boostup3d = document.querySelector('#boostup3d')
+var EL_boostup4d = document.querySelector('#boostup4d')
+var EL_boostup5d = document.querySelector('#boostup5d')
 
 var restartknapp = document.querySelector('#ascend') 
 
 var EL_boost1asd = document.querySelector('#boost1asd')
+var EL_boost2asd = document.querySelector('#boost2asd')
 
 var up1k = 0
 var up2k = 0
@@ -128,6 +137,9 @@ function upgrade2() {
             befor.innerHTML = "Aubergines: "+kjeksr
             up2d.innerHTML = ""
             uplv2.innerHTML = "Lvl. "+up2v
+            if (up2v > 9) {
+                test2 = true
+            }
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
         }else {
             up2d.innerHTML = "Not enough Aubergines"
@@ -266,6 +278,18 @@ function upgrade5() {
             }
         }
 
+        function boost2() {
+            if (test2 == true) {
+                if (!boost2active == true) {
+                    EL_boost2asd.style.color = 'yellow';
+                    boost2timer = 10
+                    boost2active = true
+                } else {
+                    document.getElementById('boostup2d').innerHTML = ("Du må ha Eskil i level 10")
+                }
+            }
+        }
+
 
     
 
@@ -312,7 +336,6 @@ function upgrade5() {
         if (!testint4 == 0) {
             testint4 = testint4 - 1
         }
-        console.log(testint4)
         if (autosavetime>15) {
             save()
             autosavetime = 0
@@ -340,6 +363,17 @@ function upgrade5() {
             }  else {
                 EL_totaldpc.style.color = 'white';
             }
+        if (boost2active === true) {
+            for (let i = 0; i < 10; i++) {
+                sjekk()
+              }
+            boost2timer = boost2timer - 1
+            if (boost2timer == 0) {
+                boost2active = false
+                testint3 = 60
+                EL_boost2asd.style.color = 'white';
+            }
+        }
         }
     
     function save() {

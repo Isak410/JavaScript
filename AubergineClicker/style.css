@@ -110,32 +110,32 @@ body {
 }
 
 #boost1 {
-  background-image: url("boost.png");
+  background-image: url("./IMG/boost.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-top: 1px solid black;
 }
 
 #boost2 {
-  background-image: url("boost.png");
+  background-image: url("./IMG/boost.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #boost3 {
-  background-image: url("boost.png");
+  background-image: url("./IMG/boost.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #boost4 {
-  background-image: url("boost.png");
+  background-image: url("./IMG/boost.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #boost5 {
-  background-image: url("boost.png");
+  background-image: url("./IMG/boost.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
