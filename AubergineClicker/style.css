@@ -140,6 +140,10 @@ body {
   background-repeat: no-repeat;
 }
 
+#godmode {
+  opacity: 0%;
+}
+
 .cookie {
   width: 1000px;
   height: 1000px;
@@ -193,19 +197,21 @@ body {
 .upmain {
   display: flex;
   flex-basis: calc(20%);
-  width: 110px;
+  width: 140px;
   text-align: left;
   flex-direction: column;
   background-color: transparent;
+  border-radius: 10px;
 }
 
 .boostmain {
   display: flex;
   flex-basis: calc(20%);
-  width: 110px;
+  width: 140px;
   text-align: left;
   flex-direction: column;
   background-color: transparent;
+  border-radius: 10px;
 }
 
 h1 {
@@ -230,6 +236,7 @@ p {
 
 #klikk {
   background-color: transparent;
+  border-radius: 10px;
 }
 
 #ascend {
@@ -259,7 +266,8 @@ body {
 }
 
 #overskrift {
-  font-size: 4em;
+  font-size: 9em;
+  margin: 5px;
 }
 
 #boostno1 {

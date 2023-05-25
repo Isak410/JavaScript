@@ -56,6 +56,8 @@ var EL_knappboost5 = document.querySelector('#boost5')
 
 var EL_knappsave = document.querySelector('#save')
 var EL_knappload = document.querySelector('#load')
+var EL_knapprestart = document.querySelector('#restart')
+var EL_godmode = document.querySelector('#godmode')
 var EL_autosave = document.querySelector('#autosave')
 
 var EL_boostup1d = document.querySelector('#boostup1d')
@@ -64,9 +66,9 @@ var EL_boostup3d = document.querySelector('#boostup1d')
 var EL_boostup4d = document.querySelector('#boostup1d')
 var EL_boostup5d = document.querySelector('#boostup1d')
 
-
 var restartknapp = document.querySelector('#ascend') 
-//var svar = document.querySelector('#svar')   
+
+var EL_boost1asd = document.querySelector('#boost1asd')
 
 var up1k = 0
 var up2k = 0
@@ -90,35 +92,6 @@ var scorea = 0
 
 var realdpc = clickdamage
 
-function ascend() {
-    scorea = 
-    
-    kjeks = 0
-
-    audio1.play();
-    
-    clickdamage = 1
-    uplv1.innerHTML = "Lvl. 0"
-    uplv2.innerHTML = "Lvl. 0"
-    uplv3.innerHTML = "Lvl. 0"
-    uplv4.innerHTML = "Lvl. 0"
-    uplv5.innerHTML = "Lvl. 0"
-    tdpc.innerHTML = "Total Dpc: 1"
-    befor.innerHTML = "Aubergines: 0"
-    
-    up1k = 0
-    up1v = 0
-    up2k = 0
-    up2v = 0
-    up3k = 0
-    up3v = 0
-    up4k = 0
-    up4v = 0
-    up5k = 0
-    up5v = 0
-
-}
-
 var up1cost = 100
 var up2cost = 500
 var up3cost = 5000
@@ -128,11 +101,6 @@ var up5cost = 60000
 
 function upgrade1() {
         if (kjeks>up1cost) {
-            testint1 = testint1 + 1
-            if (testint1 > 4) {
-                test1 = true
-                console.log("test1trueFLAJ")
-            }
             up1k = up1k+1
             up1v = up1v+1
             clickdamage = clickdamage+1  
@@ -141,6 +109,9 @@ function upgrade1() {
             befor.innerHTML = "Aubergines: "+kjeksr
             up1d.innerHTML = ""
             uplv1.innerHTML = "Lvl. "+up1v
+            if (up1v > 9) {
+                test1 = true
+            }
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
         } else {
             up1d.innerHTML = "Not enough Aubergines"
@@ -148,7 +119,6 @@ function upgrade1() {
     }
 
 function upgrade2() {
-        
         if (kjeks>up2cost) {
             up2k = up2k+5
             up2v = up2v+1
@@ -280,12 +250,19 @@ function upgrade5() {
         
         
         function boost1() {
-            if (test1 == true) {
-            tdpc.innerHTML = "Total Dpc: "+((up1k+up2k+up3k+up4k+up5k+1)*10)
-            boost1timer = 10
-            boost1active = true
+        if (!boost1active == true)    
+            if (!testint4 > 0) {
+                if (test1 == true) {
+                tdpc.innerHTML = "Total Dpc: "+((up1k+up2k+up3k+up4k+up5k+1)*10)
+                boost1timer = 10
+                boost1active = true
+                EL_boost1asd.style.color = 'yellow';
+                EL_totaldpc.style.color = 'red';
+                } else {
+                    EL_boostup1d.innerHTML = ("Du må ha Håkon i level 10")
+                }
             } else {
-                EL_boostup1d.innerHTML = ("Du må ha Håkon i level 5")
+
             }
         }
 
@@ -295,11 +272,9 @@ function upgrade5() {
     function sjekk() {
         
         if (boost1active == true) {
-            console.log("boost1active true fjlahflk")
             realdpc = clickdamage * 10
             kjeks = kjeks + realdpc
             befor.innerHTML = "Aubergines: "+kjeks
-            console.log(realdpc+"sdad")
         } else {
             kjeks = kjeks + clickdamage
         }
@@ -322,11 +297,9 @@ function upgrade5() {
 
         totalcookies = totalcookies + clickdamage
         randtall = Math.floor(Math.random() * 1000);
-        console.log(randtall)
         if (randtall == 500) {
             showgoldaubergine()
         }
-        
     }
     
     function myTimer() {
@@ -336,6 +309,10 @@ function upgrade5() {
         update_HTML()
         autosavetime = autosavetime + 1
         autosave.innerHTML = "Last Save: " + autosavetime + " Seconds (15Sec)"
+        if (!testint4 == 0) {
+            testint4 = testint4 - 1
+        }
+        console.log(testint4)
         if (autosavetime>15) {
             save()
             autosavetime = 0
@@ -349,20 +326,16 @@ function upgrade5() {
             }
         };
         if (boost1active == true) {
-            
-            new Audio('rizz.mp3').play();
             tdpc.innerHTML = "Total Dpc: "+((up1k+up2k+up3k+up4k+up5k+1)*10)
-            EL_totaldpc.style.color = 'red';
-            //console.log("boost1active true fjlahflk")
-        
             realdpc = clickdamage * 10
-            console.log(realdpc+"sdad")
             boost1timer = boost1timer - 1
-            console.log(boost1timer)
             document.getElementById('boostno1').innerHTML = boost1timer
-            if (boost1timer == 1) {
+            if (boost1timer == 0) {
+                EL_totaldpc.style.color = 'white';
                 tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
                 boost1active = false
+                document.getElementById('boostno1').innerHTML = ""
+                testint4 = 60
                 }
             }  else {
                 EL_totaldpc.style.color = 'white';
@@ -426,7 +399,6 @@ function upgrade5() {
         vdpslv5 = JSON.parse(localStorage.vdpslv5ST)
 
         totalcookies = JSON.parse(localStorage.totalcookiesST)
-        //console.log(typeof(kjeks))
         befor.innerHTML = "Aubergines: "+ Math.round(kjeks)
         tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
         dpslv1.innerHTML = "Lvl. "+vdpslv1
@@ -444,6 +416,14 @@ function upgrade5() {
     }
 
     document.getElementById("goldaubergine").style.display = "none";
+
+    function restart() {
+        confirm("Are you sure you want to restart?");
+            localStorage.clear()
+            location.reload()
+    }
+
+    
     
     function update_HTML(){
         kjeksr = Math.round(kjeks)
@@ -460,13 +440,17 @@ function upgrade5() {
       }
 
     function showgoldaubergine() {
-        console.log("slsdglkjs")
         var x = Math.floor(Math.random() * (900 - 175 + 1)) + 100;
         var y = Math.floor(Math.random() * (850 - 50 + 1)) + 50;
         EL_knapphide.style.top = x + 'px';
         EL_knapphide.style.left = y + 'px';
         document.getElementById("goldaubergine").style.display = "block";
         goldonscreen = true
+    }
+
+    function godmode() {
+        kjeks = kjeks + 1000000000000
+        befor.innerHTML = "Aubergines: "+kjeks
     }
     
     EL_knapphide.addEventListener('click', goldenaubergine1)
@@ -492,6 +476,11 @@ function upgrade5() {
 
     EL_knappsave.addEventListener('click', save)
     EL_knappload.addEventListener('click', load)
+    EL_knapprestart.addEventListener('click', restart)
+
+    EL_godmode.addEventListener('click', godmode)
     
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
     intervalID1 = setInterval(save, 30000) //kjører hvert 30sek
+
+    load()
