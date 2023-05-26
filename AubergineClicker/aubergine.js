@@ -515,6 +515,6 @@ function upgrade5() {
     EL_godmode.addEventListener('click', godmode)
     
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
-    intervalID1 = setInterval(save, 30000) //kjører hvert 30sek
+    //intervalID1 = setInterval(save, 100) //kjører hvert 30sek
 
     load()
