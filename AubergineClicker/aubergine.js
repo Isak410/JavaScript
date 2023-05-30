@@ -20,7 +20,7 @@ var dpsr = Math.round(dps)
 var ticks = 0
 var autosavetime = 0
 
-var audio1 = new Audio('rizz.mp3');
+var audio1 = new Audio('./Audio/rizz.mp3');
 
 var clickdamage = 1
 var kjeks = 0
@@ -79,6 +79,8 @@ var restartknapp = document.querySelector('#ascend')
 var EL_boost1asd = document.querySelector('#boost1asd')
 var EL_boost2asd = document.querySelector('#boost2asd')
 
+var EL_boostup2d = document.querySelector('#boostup2d')
+
 var up1k = 0
 var up2k = 0
 var up3k = 0
@@ -114,8 +116,7 @@ function upgrade1() {
             up1v = up1v+1
             clickdamage = clickdamage+1  
             kjeks = kjeks-up1cost
-            kjeksr = Math.round(kjeks)
-            befor.innerHTML = "Aubergines: "+kjeksr
+            update_HTML()
             up1d.innerHTML = ""
             uplv1.innerHTML = "Lvl. "+up1v
             if (up1v > 9) {
@@ -133,8 +134,7 @@ function upgrade2() {
             up2v = up2v+1
             clickdamage  = clickdamage+ 5
             kjeks = kjeks-up2cost
-            kjeksr = Math.round(kjeks)
-            befor.innerHTML = "Aubergines: "+kjeksr
+            update_HTML()
             up2d.innerHTML = ""
             uplv2.innerHTML = "Lvl. "+up2v
             if (up2v > 9) {
@@ -153,8 +153,7 @@ function upgrade3() {
             up3v = up3v+1
             clickdamage  = clickdamage+ 20
             kjeks = kjeks-up3cost
-            kjeksr = Math.round(kjeks)
-            befor.innerHTML = "Aubergines: "+kjeksr
+            update_HTML()
             up3d.innerHTML = ""
             uplv3.innerHTML = "Lvl. "+up3v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
@@ -170,8 +169,7 @@ function upgrade4() {
             up4v = up4v+1
             clickdamage  = clickdamage+ 100
             kjeks = kjeks-up4cost
-            kjeksr = Math.round(kjeks)
-            befor.innerHTML = "Aubergines: "+kjeksr
+            update_HTML()
             up4d.innerHTML = ""
             uplv4.innerHTML = "Lvl. "+up4v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
@@ -187,8 +185,7 @@ function upgrade5() {
             up5v = up5v+1
             clickdamage  = clickdamage+ 500
             kjeks = kjeks-up5cost
-            kjeksr = Math.round(kjeks)
-            befor.innerHTML = "Aubergines: "+kjeksr
+            update_HTML()
             up5d.innerHTML = ""
             uplv5.innerHTML = "Lvl. "+up5v
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k)
@@ -284,9 +281,10 @@ function upgrade5() {
                     EL_boost2asd.style.color = 'yellow';
                     boost2timer = 10
                     boost2active = true
-                } else {
-                    document.getElementById('boostup2d').innerHTML = ("Du må ha Eskil i level 10")
-                }
+                } 
+            }else {
+                console.log("slfhsdlkjfhdslkjfhdslkfvgslkj")
+                EL_boostup2d.innerHTML = ("Du må ha Eskil i level 10")
             }
         }
 
@@ -298,19 +296,19 @@ function upgrade5() {
         if (boost1active == true) {
             realdpc = clickdamage * 10
             kjeks = kjeks + realdpc
-            befor.innerHTML = "Aubergines: "+kjeks
+            update_HTML()
         } else {
             kjeks = kjeks + clickdamage
         }
         
-        kjeksr = Math.round(kjeks)
-        befor.innerHTML = "Aubergines: "+kjeksr
+        update_HTML()
         up1d.innerHTML = ""
         up2d.innerHTML = ""
         up3d.innerHTML = ""
         up4d.innerHTML = ""
         up5d.innerHTML = ""
         EL_boostup1d.innerHTML = ""
+        EL_boostup2d.innerHTML = ""
 
         //clear "not enough aubergines" felt
         document.querySelector('#dpsup1d').innerHTML = ""
@@ -328,7 +326,7 @@ function upgrade5() {
     
     function myTimer() {
         ticks++
-        kjeks = kjeks + dps
+        
         totalcookies = totalcookies + dps
         update_HTML()
         autosavetime = autosavetime + 1
@@ -375,6 +373,10 @@ function upgrade5() {
             }
         }
         }
+
+    function update2() {
+        kjeks = kjeks + (dps/10)
+    }
     
     function save() {
         localStorage.kjeksST = kjeks
@@ -439,7 +441,7 @@ function upgrade5() {
         testint3 = JSON.parse(localStorage.testint3ST)
 
         totalcookies = JSON.parse(localStorage.totalcookiesST)
-        befor.innerHTML = "Aubergines: "+ Math.round(kjeks)
+        update_HTML()
         tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
         dpslv1.innerHTML = "Lvl. "+vdpslv1
         dpslv2.innerHTML = "Lvl. "+vdpslv2
@@ -464,10 +466,11 @@ function upgrade5() {
     }
 
     
+
+    
     
     function update_HTML(){
-        kjeksr = Math.round(kjeks)
-        befor.innerHTML = "Aubergines: "+kjeksr
+        befor.innerHTML = "Aubergines: "+kjeks.toFixed(1)
         dpsr = Math.round(dps)
         dps13.innerHTML =  "Total Dps: "+dps.toFixed(1)
     }
@@ -475,8 +478,7 @@ function upgrade5() {
     function goldenaubergine1() {
         kjeks = kjeks + totalcookies * 2
         document.getElementById("goldaubergine").style.display = "none";
-        kjeksr = Math.round(kjeks)
-        befor.innerHTML = "Aubergines: "+kjeksr
+        update_HTML()
       }
 
     function showgoldaubergine() {
@@ -490,7 +492,7 @@ function upgrade5() {
 
     function godmode() {
         kjeks = kjeks + 1000000000000
-        befor.innerHTML = "Aubergines: "+kjeks
+        update_HTML()
     }
     
     EL_knapphide.addEventListener('click', goldenaubergine1)
@@ -521,6 +523,7 @@ function upgrade5() {
     EL_godmode.addEventListener('click', godmode)
     
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
-    //intervalID1 = setInterval(save, 100) //kjører hvert 30sek
+    intervalID1 = setInterval(update_HTML, 100) //kjører hvert 0,1sek
+    intervalID2 = setInterval(update2, 100) //kjører hvert 0,1sek
 
     load()
