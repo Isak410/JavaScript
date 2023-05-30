@@ -405,6 +405,9 @@ function upgrade5() {
         autosavetime = 0
         autosave.innerHTML = "Last Save: " + autosavetime + " Seconds (15Sec)"
 
+        localStorage.testint3ST = testint3
+        localStorage.testint4ST = testint4
+
         console.log("saved")
     }
 
@@ -431,6 +434,9 @@ function upgrade5() {
         vdpslv3 = JSON.parse(localStorage.vdpslv3ST)
         vdpslv4 = JSON.parse(localStorage.vdpslv4ST)
         vdpslv5 = JSON.parse(localStorage.vdpslv5ST)
+
+        testint4 = JSON.parse(localStorage.testint4ST)
+        testint3 = JSON.parse(localStorage.testint3ST)
 
         totalcookies = JSON.parse(localStorage.totalcookiesST)
         befor.innerHTML = "Aubergines: "+ Math.round(kjeks)
