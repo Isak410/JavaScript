@@ -375,7 +375,7 @@ function upgrade5() {
         }
 
     function update2() {
-        kjeks = kjeks + (dps/10)
+        kjeks = kjeks + (dps/100)
     }
     
     function save() {
@@ -522,8 +522,8 @@ function upgrade5() {
 
     EL_godmode.addEventListener('click', godmode)
     
-    intervalID = setInterval(myTimer, 1000) //kjører hvert 1000ms (1sek = 1000ms)
+    intervalID = setInterval(myTimer, 1000) //kjører hvert 1 sek (1sek = 1000ms)
     intervalID1 = setInterval(update_HTML, 100) //kjører hvert 0,1sek
-    intervalID2 = setInterval(update2, 100) //kjører hvert 0,1sek
+    intervalID2 = setInterval(update2, 10) //kjører hvert 0,01sek
 
     load()
