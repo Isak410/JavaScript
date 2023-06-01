@@ -38,48 +38,46 @@ var testint3 = 0
 var testint4 = 0
 var testint5 = 0
 
-var EL_totaldpc = document.getElementById("tdpc");
+const EL_totaldpc = document.getElementById("tdpc");
 
-var EL_knapphide = document.querySelector('#goldaubergine') 
-var EL_knapp = document.querySelector('#klikk') 
+const EL_knapphide = document.querySelector('#goldaubergine') 
+const EL_knapp = document.querySelector('#klikk') 
 
-var EL_knappup1 = document.querySelector('#up1') 
-var EL_knappup2 = document.querySelector('#up2') 
-var EL_knappup3 = document.querySelector('#up3') 
-var EL_knappup4 = document.querySelector('#up4') 
-var EL_knappup5 = document.querySelector('#up5')
+const EL_knappup1 = document.querySelector('#up1') 
+const EL_knappup2 = document.querySelector('#up2') 
+const EL_knappup3 = document.querySelector('#up3') 
+const EL_knappup4 = document.querySelector('#up4') 
+const EL_knappup5 = document.querySelector('#up5')
 
-var EL_knappdps1 = document.querySelector('#dps1') 
-var EL_knappdps2 = document.querySelector('#dps2') 
-var EL_knappdps3 = document.querySelector('#dps3') 
-var EL_knappdps4 = document.querySelector('#dps4') 
-var EL_knappdps5 = document.querySelector('#dps5')
-var EL_dps13 = document.querySelector('#dps13')
+const EL_knappdps1 = document.querySelector('#dps1') 
+const EL_knappdps2 = document.querySelector('#dps2') 
+const EL_knappdps3 = document.querySelector('#dps3') 
+const EL_knappdps4 = document.querySelector('#dps4') 
+const EL_knappdps5 = document.querySelector('#dps5')
+const EL_dps13 = document.querySelector('#dps13')
 
-var EL_knappboost1 = document.querySelector('#boost1') 
-var EL_knappboost2 = document.querySelector('#boost2') 
-var EL_knappboost3 = document.querySelector('#boost3') 
-var EL_knappboost4 = document.querySelector('#boost4') 
-var EL_knappboost5 = document.querySelector('#boost5')
+const EL_knappboost1 = document.querySelector('#boost1') 
+const EL_knappboost2 = document.querySelector('#boost2') 
+const EL_knappboost3 = document.querySelector('#boost3') 
+const EL_knappboost4 = document.querySelector('#boost4') 
+const EL_knappboost5 = document.querySelector('#boost5')
 
-var EL_knappsave = document.querySelector('#save')
-var EL_knappload = document.querySelector('#load')
-var EL_knapprestart = document.querySelector('#restart')
-var EL_godmode = document.querySelector('#godmode')
-var EL_autosave = document.querySelector('#autosave')
+const EL_knappsave = document.querySelector('#save')
+const EL_knappload = document.querySelector('#load')
+const EL_knapprestart = document.querySelector('#restart')
+const EL_godmode = document.querySelector('#godmode')
+const EL_autosave = document.querySelector('#autosave')
 
-var EL_boostup1d = document.querySelector('#boostup1d')
-var EL_boostup2d = document.querySelector('#boostup2d')
-var EL_boostup3d = document.querySelector('#boostup3d')
-var EL_boostup4d = document.querySelector('#boostup4d')
-var EL_boostup5d = document.querySelector('#boostup5d')
+const EL_boostup1d = document.querySelector('#boostup1d')
+const EL_boostup2d = document.querySelector('#boostup2d')
+const EL_boostup3d = document.querySelector('#boostup3d')
+const EL_boostup4d = document.querySelector('#boostup4d')
+const EL_boostup5d = document.querySelector('#boostup5d')
 
-var restartknapp = document.querySelector('#ascend') 
+//const restartknapp = document.querySelector('#ascend') 
 
-var EL_boost1asd = document.querySelector('#boost1asd')
-var EL_boost2asd = document.querySelector('#boost2asd')
-
-var EL_boostup2d = document.querySelector('#boostup2d')
+const EL_boost1asd = document.querySelector('#boost1asd')
+const EL_boost2asd = document.querySelector('#boost2asd')
 
 var up1k = 0
 var up2k = 0
