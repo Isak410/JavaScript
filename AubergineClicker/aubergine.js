@@ -1,54 +1,62 @@
+//tid
+var ticks = 0
+var autosavetime = 0
+
+//kjeks / currency
+var kjeks = 0
+var totalcookies = 0
+
+//damage
+var dps = 0
+var clickdamage = 1
+var realdpc = clickdamage
+
+
+//alt av boost variabler
 var goldonscreen = false
 var goldonscreennumber = 0
-
 var boost1timer = 0
 var boost2timer = 0
 var boost3timer = 0
 var boost4timer = 0
 var boost5timer = 0
-
 var boost1active = false
 var boost2active = false
 var boost3active = false
 var boost4active = false
 var boost5active = false
 
-var randtall = 0
-var totalcookies = 0
-var dps = 0
-var dpsr = Math.round(dps)
-var ticks = 0
-var autosavetime = 0
-
-var audio1 = new Audio('./Audio/rizz.mp3');
-
-var clickdamage = 1
-var kjeks = 0
-var kjeksr = Math.round(kjeks)
-
+//boolean for testing
 var test1 = false
 var test2 = false
 var test3 = false
 var test4 = false
 var test5 = false
 
+//integers for testing
 var testint1 = 0
 var testint2 = 0
 var testint3 = 0
 var testint4 = 0
-var testint5 = 0
+var testint5 = 1
 
-const EL_totaldpc = document.getElementById("tdpc");
-
-const EL_knapphide = document.querySelector('#goldaubergine') 
+//auberginebilde
 const EL_knapp = document.querySelector('#klikk') 
 
+
+const EL_totaldpc = document.getElementById("tdpc")
+
+//goldenaubergine
+const EL_knapphide = document.querySelector('#goldaubergine') 
+
+//clickdamage upgrades
 const EL_knappup1 = document.querySelector('#up1') 
 const EL_knappup2 = document.querySelector('#up2') 
 const EL_knappup3 = document.querySelector('#up3') 
 const EL_knappup4 = document.querySelector('#up4') 
 const EL_knappup5 = document.querySelector('#up5')
 
+//dps upgrades
 const EL_knappdps1 = document.querySelector('#dps1') 
 const EL_knappdps2 = document.querySelector('#dps2') 
 const EL_knappdps3 = document.querySelector('#dps3') 
@@ -56,50 +64,59 @@ const EL_knappdps4 = document.querySelector('#dps4')
 const EL_knappdps5 = document.querySelector('#dps5')
 const EL_dps13 = document.querySelector('#dps13')
 
+//boost knapper
 const EL_knappboost1 = document.querySelector('#boost1') 
 const EL_knappboost2 = document.querySelector('#boost2') 
 const EL_knappboost3 = document.querySelector('#boost3') 
 const EL_knappboost4 = document.querySelector('#boost4') 
 const EL_knappboost5 = document.querySelector('#boost5')
 
+//misc knapper
 const EL_knappsave = document.querySelector('#save')
 const EL_knappload = document.querySelector('#load')
 const EL_knapprestart = document.querySelector('#restart')
 const EL_godmode = document.querySelector('#godmode')
 const EL_autosave = document.querySelector('#autosave')
 
+//boostupgrades warnings
 const EL_boostup1d = document.querySelector('#boostup1d')
 const EL_boostup2d = document.querySelector('#boostup2d')
 const EL_boostup3d = document.querySelector('#boostup3d')
 const EL_boostup4d = document.querySelector('#boostup4d')
 const EL_boostup5d = document.querySelector('#boostup5d')
 
-//const restartknapp = document.querySelector('#ascend') 
+//restartknapp (ikke i bruk)
+const restartknapp = document.querySelector('#ascend') 
 
+//tekst for tittel av boosts (for fargeskifting)
 const EL_boost1asd = document.querySelector('#boost1asd')
 const EL_boost2asd = document.querySelector('#boost2asd')
 
+//audiotest
+const audio1 = new Audio('./Audio/rizz.mp3');
+
+//clickdamage fra alle upgrades
 var up1k = 0
 var up2k = 0
 var up3k = 0
 var up4k = 0
 var up5k = 0
 
+//level av hver upgrade
 var up1v = 0
 var up2v = 0
 var up3v = 0
 var up4v = 0
 var up5v = 0
 
+//level av hver dps upgrade
 var vdpslv1 = 0
 var vdpslv2 = 0
 var vdpslv3 = 0
 var vdpslv4 = 0
 var vdpslv5 = 0
 
-var scorea = 0
 
-var realdpc = clickdamage
 
 var up1cost = 100
 var up2cost = 500
@@ -316,7 +333,7 @@ function upgrade5() {
         document.querySelector('#dpsup5d').innerHTML = ""
 
         totalcookies = totalcookies + clickdamage
-        randtall = Math.floor(Math.random() * 1000);
+        let randtall = Math.floor(Math.random() * 1000);
         if (randtall == 500) {
             showgoldaubergine()
         }
@@ -324,6 +341,9 @@ function upgrade5() {
     
     function myTimer() {
         ticks++
+        if (dps > 10) {
+            testint5 = 0
+        }
         
         totalcookies = totalcookies + dps
         update_HTML()
@@ -373,7 +393,7 @@ function upgrade5() {
         }
 
     function update2() {
-        kjeks = kjeks + (dps/100)
+        kjeks = kjeks + (dps/10)
     }
     
     function save() {
@@ -468,8 +488,7 @@ function upgrade5() {
     
     
     function update_HTML(){
-        befor.innerHTML = "Aubergines: "+kjeks.toFixed(1)
-        dpsr = Math.round(dps)
+        befor.innerHTML = "Aubergines: "+kjeks.toFixed(testint5)
         dps13.innerHTML =  "Total Dps: "+dps.toFixed(1)
     }
 
@@ -522,6 +541,6 @@ function upgrade5() {
     
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1 sek (1sek = 1000ms)
     intervalID1 = setInterval(update_HTML, 100) //kjører hvert 0,1sek
-    intervalID2 = setInterval(update2, 10) //kjører hvert 0,01sek
+    intervalID2 = setInterval(update2, 100) //kjører hvert 0,1sek
 
     load()
