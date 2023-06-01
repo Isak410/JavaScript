@@ -30,6 +30,13 @@ var explo2total = 0
 var rocket2total = 0
 var c42total = 0
 
+var beancan3total = 0
+var satchel3total = 0
+var explo3total = 0
+var rocket3total = 0
+var c43total = 0
+
+var totalsulfur = 0
 var totalgp = 0
 var totalmetal = 0
 var totallowgrade = 0
@@ -41,6 +48,14 @@ var totallowgrade = 0
         value3 = document.getElementById('exploin').value
         value4 = document.getElementById('rocketin').value
         value5 = document.getElementById('c4in').value
+
+        //sulfur
+        beancan3total = (value1*120)
+        satchel3total = (value2*480)
+        explo3total = (value3*14.5)
+        rocket3total = (value4*1100)
+        c43total =  (value5*2200)
+
 
         //gp
         beancantotal = (value1*60)
@@ -64,9 +79,11 @@ var totallowgrade = 0
         c42total = (value5*60)
 
         //innerhtml av hver item type
+        totalsulfur = (beancan3total + satchel3total + explo3total + rocket3total + c43total)
         totalgp = (beancantotal + satcheltotal + explototal + rockettotal + c4total)
         totalmetal = (beancan1total + satchel1total + explo1total + rocket1total + c41total)
         totallowgrade = (beancan2total + satchel2total + explo2total + rocket2total + c42total)
+        document.getElementById('totalsulfur').innerHTML = ("(You need a total of: " +totalsulfur+ " Sulfur)")
         document.getElementById('totalgp').innerHTML = ("You need a total of: " +totalgp+ " Gunpowder")
         document.getElementById('totalmetal').innerHTML = ("You need a total of: " +totalmetal+ " Metal")
         document.getElementById('totallowgrade').innerHTML = ("You need a total of: " +totallowgrade+ " Lowgrade")

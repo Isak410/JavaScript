@@ -10,12 +10,17 @@ img {
     height: 150px;
 }
 
-.inputs input {
-    width: 150px;
+input {
+    width: 25px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.5em;
 }
 
 button {
-    width: 180px;
+    width: 217px;
+    border-radius: 10px;
+    height: 30px;
 }
 
 body {
@@ -31,4 +36,24 @@ body {
 .submit1 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.images {
+    display: flex;
+    flex-direction: row;
+    border: 1px;
+}
+
+.bundle1 {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
