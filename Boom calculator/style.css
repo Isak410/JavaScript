@@ -27,3 +27,8 @@ body {
     height: 100px;
     background-image: url(Assets/testimg.png);
 }
+
+.submit1 {
+    display: flex;
+    flex-direction: column;
+}
