@@ -1,0 +1,29 @@
+.hoved {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.inputs input {
+    width: 150px;
+}
+
+button {
+    width: 180px;
+}
+
+body {
+    background-color: darkslategray;
+}
+
+#submitknappdiv  {
+    width: 100px;
+    height: 100px;
+    background-image: url(Assets/testimg.png);
+}
