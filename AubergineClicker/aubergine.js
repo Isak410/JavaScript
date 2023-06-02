@@ -1,5 +1,4 @@
 //tid
-var ticks = 0
 var autosavetime = 0
 
 //kjeks / currency
@@ -93,7 +92,10 @@ const EL_boost1asd = document.querySelector('#boost1asd')
 const EL_boost2asd = document.querySelector('#boost2asd')
 
 //audiotest
-const audio1 = new Audio('./Audio/rizz.mp3');
+const audio1 = new Audio('./Assets/Audio/rizz.mp3');
+const audio2 = new Audio('./Assets/Audio/ambatakam.mp3')
+
+const EL_kambilde1 = document.querySelector('#kambilde')
 
 //clickdamage fra alle upgrades
 var up1k = 0
@@ -162,7 +164,6 @@ function upgrade2() {
     }
 
 function upgrade3() {
-        
         if (kjeks>up3cost) {
             up3k = up3k+20
             up3v = up3v+1
@@ -177,8 +178,7 @@ function upgrade3() {
         }   
     }
 
-function upgrade4() {
-        
+function upgrade4() { 
         if (kjeks>up4cost) {
             up4k = up4k+100
             up4v = up4v+1
@@ -194,8 +194,8 @@ function upgrade4() {
     }
 
 function upgrade5() {
-        
         if (kjeks>up5cost) {
+            audio1.play()
             up5k = up5k+500
             up5v = up5v+1
             clickdamage  = clickdamage+ 500
@@ -209,8 +209,6 @@ function upgrade5() {
             }    
         }
 
-
-        
 
         function dps1() {
             if (kjeks>up1cost) {
@@ -238,6 +236,8 @@ function upgrade5() {
 
         function dps3() {
             if (kjeks>up3cost) {
+                EL_kambilde1.style.display = "block"
+                audio2.play()
                 kjeks = kjeks-up3cost
                 dps = dps + 2.0
                 vdpslv3 = vdpslv3 + 1
@@ -304,10 +304,7 @@ function upgrade5() {
         }
 
 
-    
-
     function sjekk() {
-        
         if (boost1active == true) {
             realdpc = clickdamage * 10
             kjeks = kjeks + realdpc
@@ -316,6 +313,7 @@ function upgrade5() {
             kjeks = kjeks + clickdamage
         }
         
+        EL_kambilde1.style.display = "none"
         update_HTML()
         up1d.innerHTML = ""
         up2d.innerHTML = ""
@@ -340,7 +338,6 @@ function upgrade5() {
     }
     
     function myTimer() {
-        ticks++
         if (dps > 10) {
             testint5 = 0
         }
@@ -400,7 +397,6 @@ function upgrade5() {
         localStorage.kjeksST = kjeks
         localStorage.dpsST = dps
         localStorage.clickdamageST = clickdamage
-        localStorage.ticksST = ticks
 
         localStorage.up1kST = up1k
         localStorage.up2kST = up2k
@@ -435,7 +431,6 @@ function upgrade5() {
         kjeks = JSON.parse(localStorage.kjeksST)
         dps = JSON.parse(localStorage.dpsST)
         clickdamage = JSON.parse(localStorage.clickdamageST)
-        ticks = JSON.parse(localStorage.ticksST)
 
         up1k = JSON.parse(localStorage.up1kST)
         up2k = JSON.parse(localStorage.up2kST)

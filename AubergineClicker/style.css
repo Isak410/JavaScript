@@ -48,94 +48,94 @@ body {
 }
 
 #up1 {
-  background-image: url("./IMG/GP__5713.JPG");
+  background-image: url("./Assets/IMG/GP__5713.JPG");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-top: 1px solid black;
 }
 
 #up2 {
-  background-image: url("./IMG/GP__5723.JPG");
+  background-image: url("./Assets/IMG/GP__5723.JPG");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #up3 {
-  background-image: url("./IMG/GP__5735.JPG");
+  background-image: url("./Assets/IMG/GP__5735.JPG");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #up4 {
-  background-image: url("./IMG/GP__5738.JPG");
+  background-image: url("./Assets/IMG/GP__5738.JPG");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #up5 {
-  background-image: url("./IMG/IMG_4173.jpg");
+  background-image: url("./Assets/IMG/IMG_4173.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #dps1 {
-  background-image: url("./IMG/slave.jpg");
+  background-image: url("./Assets/IMG/slave.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-top: 1px solid black;
 }
 
 #dps2 {
-  background-image: url("./IMG/slave2.jpg");
+  background-image: url("./Assets/IMG/slave2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #dps3 {
-  background-image: url("./IMG/placeholder.png");
+  background-image: url("./Assets/IMG/abcu.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #dps4 {
-  background-image: url("./IMG/placeholder.png");
+  background-image: url("./Assets/IMG/ricardo.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #dps5 {
-  background-image: url("./IMG/placeholder.png");
+  background-image: url("./Assets/IMG/deilig.PNG");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #boost1 {
-  background-image: url("./IMG/boost.png");
+  background-image: url("./Assets/IMG/anja.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-top: 1px solid black;
 }
 
 #boost2 {
-  background-image: url("./IMG/boost.png");
+  background-image: url("./Assets/IMG/cocaine_web.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #boost3 {
-  background-image: url("./IMG/boost.png");
+  background-image: url("./Assets/IMG/last\ ned\ \(2\).jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #boost4 {
-  background-image: url("./IMG/boost.png");
+  background-image: url("./Assets/IMG/images.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 #boost5 {
-  background-image: url("./IMG/boost.png");
+  background-image: url("./Assets/IMG/maxresdefault.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -287,3 +287,23 @@ body {
   border-radius: 10px;
   
 }
+
+.topmain {
+  display: flex;
+  flex-direction: row;
+}
+
+#over1 {
+  width: 140px;
+  height: 30px;
+}
+
+#over2 {
+  width: 1001px;
+  height: 30px;
+}
+
+#kambilde {
+  display: none;
+}
+
