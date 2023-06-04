@@ -305,6 +305,7 @@ function upgrade5() {
 
 
     function sjekk() {
+        testint2 = testint2 + 1
         if (boost1active == true) {
             realdpc = clickdamage * 10
             kjeks = kjeks + realdpc
@@ -338,6 +339,12 @@ function upgrade5() {
     }
     
     function myTimer() {
+        if (testint2 > 16) {
+            window.location.href = "autoclicker.html"
+        }   else {
+            testint2 = 0
+        }
+
         if (dps > 10) {
             testint5 = 0
         }
