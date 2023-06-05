@@ -38,6 +38,7 @@ var testint2 = 0
 var testint3 = 0
 var testint4 = 0
 var testint5 = 1
+var testint6 = 16
 
 //auberginebilde
 const EL_knapp = document.querySelector('#klikk') 
@@ -339,7 +340,13 @@ function upgrade5() {
     }
     
     function myTimer() {
-        if (testint2 > 16) {
+        if (boost1active == true) {
+            testint6 = 26
+        }   else {
+            testint6 = 16
+        }
+
+        if (testint2 > testint6) {
             window.location.href = "autoclicker.html"
         }   else {
             testint2 = 0
