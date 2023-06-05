@@ -517,6 +517,7 @@ function upgrade5() {
     }
 
     function godmode() {
+        //function for å teste upgrades / boosts osv.
         kjeks = kjeks + 1000000000000
         update_HTML()
     }
