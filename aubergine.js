@@ -38,7 +38,7 @@ var testint2 = 0
 var testint3 = 0
 var testint4 = 0
 var testint5 = 1
-var testint6 = 16
+var testint6 = 24
 
 //auberginebilde
 const EL_knapp = document.querySelector('#klikk') 
@@ -99,6 +99,9 @@ const audio2 = new Audio('./Assets/Audio/ambatakam.mp3')
 //bare kødd
 const EL_kambilde1 = document.querySelector('#kambilde')
 
+//div opacity
+const EL_upgrades12 = document.querySelector('.upgrades12')
+
 //clickdamage fra alle upgrades
 var up1k = 0
 var up2k = 0
@@ -126,6 +129,8 @@ var up2cost = 500
 var up3cost = 5000
 var up4cost = 15000
 var up5cost = 60000
+
+
 
 
 function upgrade1() {
@@ -351,9 +356,9 @@ function upgrade5() {
     
     function myTimer() {
         if (boost1active == true) {
-            testint6 = 26
+            testint6 = 240
         }   else {
-            testint6 = 16
+            testint6 = 24
         }
 
         if (testint2 > testint6) {
@@ -371,6 +376,7 @@ function upgrade5() {
         autosavetime = autosavetime + 1
         autosave.innerHTML = "Last Save: " + autosavetime + " Seconds (15Sec)"
         if (!testint4 == 0) {
+            EL_boost1asd.style.color = 'white';
             testint4 = testint4 - 1
         }
         if (autosavetime>15) {
@@ -448,6 +454,12 @@ function upgrade5() {
         localStorage.testint3ST = testint3
         localStorage.testint4ST = testint4
 
+        localStorage.boost1activeST = boost1active
+        localStorage.boost2activeST = boost2active
+
+        localStorage.boost1timerST = boost1timer
+        localStorage.boost2timerST = boost2timer
+
         console.log("saved")
     }
 
@@ -455,6 +467,17 @@ function upgrade5() {
         kjeks = JSON.parse(localStorage.kjeksST)
         dps = JSON.parse(localStorage.dpsST)
         clickdamage = JSON.parse(localStorage.clickdamageST)
+
+        boost1active = JSON.parse(localStorage.boost1activeST)
+        boost2active = JSON.parse(localStorage.boost2activeST)
+
+        boost1timer = JSON.parse(localStorage.boost1timerST)
+        boost2timer = JSON.parse(localStorage.boost2timerST)
+
+        if (boost1active == true) {
+            EL_boost1asd.style.color = 'yellow';
+            EL_totaldpc.style.color = 'red';
+        }
 
         up1k = JSON.parse(localStorage.up1kST)
         up2k = JSON.parse(localStorage.up2kST)
@@ -509,6 +532,59 @@ function upgrade5() {
     function update_HTML(){
         befor.innerHTML = "Aubergines: "+kjeks.toFixed(testint5)
         dps13.innerHTML =  "Total Dps: "+dps.toFixed(1)
+
+        if (kjeks > up1cost-1) {
+            document.querySelector('#up1').style.opacity = "1";
+            document.querySelector('#dps1').style.opacity = "1";
+        }   else {
+            document.querySelector('#up1').style.opacity = "0.6";
+            document.querySelector('#dps1').style.opacity = "0.6";
+        }
+        if (kjeks > up2cost-1) {
+            document.querySelector('#up2').style.opacity = "1";
+            document.querySelector('#dps2').style.opacity = "1";
+        }   else {
+            document.querySelector('#up2').style.opacity = "0.6";
+            document.querySelector('#dps2').style.opacity = "0.6";
+        }
+        if (kjeks > up3cost-1) {
+            document.querySelector('#up3').style.opacity = "1";
+            document.querySelector('#dps3').style.opacity = "1";
+        }   else {
+            document.querySelector('#up3').style.opacity = "0.6";
+            document.querySelector('#dps3').style.opacity = "0.6";
+        }
+        if (kjeks > up4cost-1) {
+            document.querySelector('#up4').style.opacity = "1";
+            document.querySelector('#dps4').style.opacity = "1";
+        }   else {
+            document.querySelector('#up4').style.opacity = "0.6";
+            document.querySelector('#dps4').style.opacity = "0.6";
+        }
+        if (kjeks > up5cost-1) {
+            document.querySelector('#up5').style.opacity = "1";
+            document.querySelector('#dps5').style.opacity = "1";
+        }   else {
+            document.querySelector('#up5').style.opacity = "0.6";
+            document.querySelector('#dps5').style.opacity = "0.6";
+        }
+        if (up1v > 9) {
+            document.querySelector('#boost1').style.opacity = "1";
+        }
+        if (!testint4 == 0) {
+            document.querySelector('#boost1').style.opacity = "0.6";
+        }
+        
+        if (up2v > 9) {
+            document.querySelector('#boost2').style.opacity = "1";
+        }   
+        if (!testint3 == 0) {
+            EL_boost1asd.style.color = 'white';
+            document.querySelector('#boost1').style.opacity = "0.6";
+        } 
+            
+        
+
     }
 
     function goldenaubergine1() {
