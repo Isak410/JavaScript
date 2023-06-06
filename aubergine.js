@@ -43,7 +43,7 @@ var testint6 = 16
 //auberginebilde
 const EL_knapp = document.querySelector('#klikk') 
 
-
+//total clickdamage feltet
 const EL_totaldpc = document.getElementById("tdpc")
 
 //goldenaubergine
@@ -96,6 +96,7 @@ const EL_boost2asd = document.querySelector('#boost2asd')
 const audio1 = new Audio('./Assets/Audio/rizz.mp3');
 const audio2 = new Audio('./Assets/Audio/ambatakam.mp3')
 
+//bare kødd
 const EL_kambilde1 = document.querySelector('#kambilde')
 
 //clickdamage fra alle upgrades
@@ -119,8 +120,7 @@ var vdpslv3 = 0
 var vdpslv4 = 0
 var vdpslv5 = 0
 
-
-
+//kosten av alle upgrades
 var up1cost = 100
 var up2cost = 500
 var up3cost = 5000
@@ -148,18 +148,28 @@ function upgrade1() {
 
 function upgrade2() {
         if (kjeks>up2cost) {
+            //hvor mye dps denne upgraden gir totalt
             up2k = up2k+5
+            //hvordan level denne upgraden er i
             up2v = up2v+1
+            //total clickdamage
             clickdamage  = clickdamage+ 5
+            //trekker fra kosten av upgraden
             kjeks = kjeks-up2cost
+            //legger inn tekst i feltene til høyre
             update_HTML()
+            //fjerner "ikke nok aubergines" feltet
             up2d.innerHTML = ""
+            //oppdaterer level teksten
             uplv2.innerHTML = "Lvl. "+up2v
+            //tillater boost2 å aktivere
             if (up2v > 9) {
                 test2 = true
             }
+            //oppdaterer total clickdamage feltet
             tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
         }else {
+            //Viser at man ikke har nok aubergines
             up2d.innerHTML = "Not enough Aubergines"
         }    
     }
@@ -304,7 +314,7 @@ function upgrade5() {
             }
         }
 
-
+    //klikk funksjonen    
     function sjekk() {
         testint2 = testint2 + 1
         if (boost1active == true) {
