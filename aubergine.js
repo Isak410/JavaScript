@@ -459,6 +459,7 @@ function upgrade5() {
 
         localStorage.boost1timerST = boost1timer
         localStorage.boost2timerST = boost2timer
+        localStorage.test2ST = test2
 
         console.log("saved")
     }
@@ -473,10 +474,16 @@ function upgrade5() {
 
         boost1timer = JSON.parse(localStorage.boost1timerST)
         boost2timer = JSON.parse(localStorage.boost2timerST)
+        test2 = JSON.parse(localStorage.test2ST)
+        
 
         if (boost1active == true) {
             EL_boost1asd.style.color = 'yellow';
             EL_totaldpc.style.color = 'red';
+        }
+
+        if (boost2active == true) {
+            EL_boost2asd.style.color = 'yellow';
         }
 
         up1k = JSON.parse(localStorage.up1kST)
