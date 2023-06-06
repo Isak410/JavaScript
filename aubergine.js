@@ -134,7 +134,7 @@ var up5cost = 60000
 
 
 function upgrade1() {
-        if (kjeks>up1cost) {
+        if (kjeks > up1cost-1) {
             up1k = up1k+1
             up1v = up1v+1
             clickdamage = clickdamage+1  
@@ -152,7 +152,8 @@ function upgrade1() {
     }
 
 function upgrade2() {
-        if (kjeks>up2cost) {
+        //hvis man har nok aubergines
+        if (kjeks > up2cost-1) {
             //hvor mye dps denne upgraden gir totalt
             up2k = up2k+5
             //hvordan level denne upgraden er i
@@ -180,7 +181,7 @@ function upgrade2() {
     }
 
 function upgrade3() {
-        if (kjeks>up3cost) {
+        if (kjeks > up3cost-1) {
             up3k = up3k+20
             up3v = up3v+1
             clickdamage  = clickdamage+ 20
@@ -195,7 +196,7 @@ function upgrade3() {
     }
 
 function upgrade4() { 
-        if (kjeks>up4cost) {
+        if (kjeks > up4cost-1) {
             up4k = up4k+100
             up4v = up4v+1
             clickdamage  = clickdamage+ 100
@@ -210,7 +211,7 @@ function upgrade4() {
     }
 
 function upgrade5() {
-        if (kjeks>up5cost) {
+        if (kjeks > up5cost-1) {
             audio1.play()
             up5k = up5k+500
             up5v = up5v+1
