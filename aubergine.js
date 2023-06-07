@@ -102,6 +102,11 @@ const EL_kambilde1 = document.querySelector('#kambilde')
 //div opacity
 const EL_upgrades12 = document.querySelector('.upgrades12')
 
+const EL_slider1 = document.querySelector('#sliderbox')
+
+const EL_ricardoGIF1 = document.querySelector('#dps4')
+const EL_batakamGIF1 = document.querySelector('#dps3')
+
 //clickdamage fra alle upgrades
 var up1k = 0
 var up2k = 0
@@ -130,7 +135,10 @@ var up3cost = 5000
 var up4cost = 15000
 var up5cost = 60000
 
-
+var booric = false
+var intric = 0
+var bookam = false
+var intkam = 0
 
 
 function upgrade1() {
@@ -145,7 +153,7 @@ function upgrade1() {
             if (up1v > 9) {
                 test1 = true
             }
-            tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+            tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
         } else {
             up1d.innerHTML = "Not enough Aubergines"
         }    
@@ -173,7 +181,7 @@ function upgrade2() {
                 test2 = true
             }
             //oppdaterer total clickdamage feltet
-            tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+            tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
         }else {
             //Viser at man ikke har nok aubergines
             up2d.innerHTML = "Not enough Aubergines"
@@ -189,7 +197,7 @@ function upgrade3() {
             update_HTML()
             up3d.innerHTML = ""
             uplv3.innerHTML = "Lvl. "+up3v
-            tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+            tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
         } else {
             up3d.innerHTML = "Not enough Aubergines"
         }   
@@ -204,7 +212,7 @@ function upgrade4() {
             update_HTML()
             up4d.innerHTML = ""
             uplv4.innerHTML = "Lvl. "+up4v
-            tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+            tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
         } else {
             up4d.innerHTML = "Not enough Aubergines"
         }   
@@ -220,7 +228,7 @@ function upgrade5() {
             update_HTML()
             up5d.innerHTML = ""
             uplv5.innerHTML = "Lvl. "+up5v
-            tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k)
+            tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k)
         } else {
             up5d.innerHTML = "Not enough Aubergines"
             }    
@@ -259,10 +267,12 @@ function upgrade5() {
                 dps = dps + 2.0
                 vdpslv3 = vdpslv3 + 1
                 dpslv3.innerHTML = "Lvl. "+vdpslv3
+                bookam = true
                 update_HTML()
             } else {
                 document.querySelector('#dpsup3d').innerHTML = "Not enough Aubergines"
                 }  
+            EL_batakamGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/batakamGIF.gif")'
         }
 
         function dps4() {
@@ -271,10 +281,13 @@ function upgrade5() {
                 dps = dps + 10.0
                 vdpslv4 = vdpslv4 + 1
                 dpslv4.innerHTML = "Lvl. "+vdpslv4
+                booric = true
                 update_HTML()
             } else {
                 document.querySelector('#dpsup4d').innerHTML = "Not enough Aubergines"
                 }  
+            EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/ricardoGIF.gif")'
+            
         }
 
         function dps5() {
@@ -294,7 +307,7 @@ function upgrade5() {
         if (!boost1active == true)    
             if (!testint4 > 0) {
                 if (test1 == true) {
-                tdpc.innerHTML = "Total Dpc: "+((up1k+up2k+up3k+up4k+up5k+1)*10)
+                tdpc.innerHTML = ((up1k+up2k+up3k+up4k+up5k+1)*10)
                 boost1timer = 10
                 boost1active = true
                 EL_boost1asd.style.color = 'yellow';
@@ -372,6 +385,24 @@ function upgrade5() {
             testint5 = 0
         }
         
+        if (booric == true) {
+            intric = intric + 1
+            if (intric > 2) {
+                intric = 0
+                booric = false
+                EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/IMG/ricardo.jpg")'
+            }
+        }
+
+        if (bookam == true) {
+            intkam = intkam + 1
+            if (intkam > 4) {
+                intkam = 0
+                bookam = false
+                EL_batakamGIF1.style.backgroundImage = 'url("./Assets/IMG/abcu.jpg")'
+            }
+        }
+
         totalcookies = totalcookies + dps
         update_HTML()
         autosavetime = autosavetime + 1
@@ -393,13 +424,13 @@ function upgrade5() {
             }
         };
         if (boost1active == true) {
-            tdpc.innerHTML = "Total Dpc: "+((up1k+up2k+up3k+up4k+up5k+1)*10)
+            tdpc.innerHTML = ((up1k+up2k+up3k+up4k+up5k+1)*10)
             realdpc = clickdamage * 10
             boost1timer = boost1timer - 1
             document.getElementById('boostno1').innerHTML = boost1timer
             if (boost1timer == 0) {
                 EL_totaldpc.style.color = 'white';
-                tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+                tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
                 boost1active = false
                 document.getElementById('boostno1').innerHTML = ""
                 testint4 = 60
@@ -510,7 +541,7 @@ function upgrade5() {
 
         totalcookies = JSON.parse(localStorage.totalcookiesST)
         update_HTML()
-        tdpc.innerHTML = "Total Dpc: "+(up1k+up2k+up3k+up4k+up5k+1)
+        tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
         dpslv1.innerHTML = "Lvl. "+vdpslv1
         dpslv2.innerHTML = "Lvl. "+vdpslv2
         dpslv3.innerHTML = "Lvl. "+vdpslv3
@@ -533,13 +564,21 @@ function upgrade5() {
             location.reload()
     }
 
+    function nsfwmode() {
+        if (EL_slider1.checked) {
+            EL_knapp.src = "./Assets/IMG/cookie1.png"
+        } else {
+            EL_knapp.src = "./Assets/IMG/cookie2.png"
+        }
+    }
+
     
 
     
     
     function update_HTML(){
         befor.innerHTML = "Aubergines: "+kjeks.toFixed(testint5)
-        dps13.innerHTML =  "Total Dps: "+dps.toFixed(1)
+        dps13.innerHTML =  dps.toFixed(testint5)
 
         if (kjeks > up1cost-1) {
             document.querySelector('#up1').style.opacity = "1";
@@ -589,6 +628,8 @@ function upgrade5() {
         if (!testint3 == 0) {
             EL_boost1asd.style.color = 'white';
             document.querySelector('#boost1').style.opacity = "0.6";
+
+
         } 
             
         
@@ -642,6 +683,8 @@ function upgrade5() {
     EL_knapprestart.addEventListener('click', restart)
 
     EL_godmode.addEventListener('click', godmode)
+
+    EL_slider1.addEventListener('change', nsfwmode)
     
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1 sek (1sek = 1000ms)
     intervalID1 = setInterval(update_HTML, 100) //kjører hvert 0,1sek
