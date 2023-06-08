@@ -329,7 +329,7 @@ body {
   font-size: 2.6em;
   margin: 5px;
   margin-left: 15px;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 #boostno1 {
@@ -365,7 +365,7 @@ body {
 #over1 {
   width: 138px;
   min-width: 138px;
-  height: 125px;
+  height: 115px;
   border: solid 1px;
   overflow: hidden;
   border-radius: 10px;
@@ -388,7 +388,7 @@ body {
   text-align: left;
   width: 1000px;
   min-width: 1000px;
-  height: 125px;
+  height: 115px;
   border: solid 1px;
   overflow: hidden;
   border-radius: 10px;

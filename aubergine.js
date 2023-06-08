@@ -14,6 +14,8 @@ var realdpc = clickdamage
 const opacitymin = 0.7
 const opacitymax = 1
 
+var totalboostactive = 0
+
 
 var talletter1 = " Aubergines"
 
@@ -69,6 +71,8 @@ const EL_knappdps3 = document.querySelector('#dps3')
 const EL_knappdps4 = document.querySelector('#dps4') 
 const EL_knappdps5 = document.querySelector('#dps5')
 const EL_dps13 = document.querySelector('#dps13')
+
+const EL_boost13 = document.querySelector('#boost13')
 
 //boost knapper
 const EL_knappboost1 = document.querySelector('#boost1') 
@@ -159,9 +163,6 @@ function upgrade1() {
             update_HTML()
             up1d.innerHTML = ""
             uplv1.innerHTML = "Lvl. "+up1v
-            if (up1v > 9) {
-                test1 = true
-            }
             tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
         } else {
             up1d.innerHTML = "Not enough Aubergines"
@@ -277,11 +278,12 @@ function upgrade5() {
                 vdpslv3 = vdpslv3 + 1
                 dpslv3.innerHTML = "Lvl. "+vdpslv3
                 bookam = true
+                EL_batakamGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/batakamGIF.gif")'
                 update_HTML()
             } else {
                 document.querySelector('#dpsup3d').innerHTML = "Not enough Aubergines"
                 }  
-            EL_batakamGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/batakamGIF.gif")'
+            
         }
 
         function dps4() {
@@ -291,11 +293,12 @@ function upgrade5() {
                 vdpslv4 = vdpslv4 + 1
                 dpslv4.innerHTML = "Lvl. "+vdpslv4
                 booric = true
+                EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/ricardoGIF.gif")'
                 update_HTML()
             } else {
                 document.querySelector('#dpsup4d').innerHTML = "Not enough Aubergines"
                 }  
-            EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/ricardoGIF.gif")'
+            
             
         }
 
@@ -316,6 +319,8 @@ function upgrade5() {
         if (!boost1active == true)    
             if (!testint4 > 0) {
                 if (test1 == true) {
+                totalboostactive += 1
+                EL_boost13.innerHTML = (totalboostactive)
                 tdpc.innerHTML = ((up1k+up2k+up3k+up4k+up5k+1)*10)
                 boost1timer = 10
                 boost1active = true
@@ -332,12 +337,13 @@ function upgrade5() {
         function boost2() {
             if (test2 == true) {
                 if (!boost2active == true) {
+                    totalboostactive += 1
+                    EL_boost13.innerHTML = (totalboostactive + 1)
                     EL_boost2asd.style.color = 'yellow';
                     boost2timer = 10
                     boost2active = true
                 } 
             }else {
-                console.log("slfhsdlkjfhdslkjfhdslkfvgslkj")
                 EL_boostup2d.innerHTML = ("Du må ha Eskil i level 10")
             }
         }
@@ -376,11 +382,15 @@ function upgrade5() {
         if (randtall == 500) {
             showgoldaubergine()
         }
-        EL_overskrift.innerHTML = kjeks
-        ettertall()
+        EL_overskrift.innerHTML = kjeks + " Aubergines"
+        
     }
     
     function myTimer() {
+        if (up1v > 9) {
+            test1 = true
+        }
+        
         if (boost1active == true) {
             testint6 = 240
         }   else {
@@ -441,26 +451,34 @@ function upgrade5() {
             boost1timer = boost1timer - 1
             document.getElementById('boostno1').innerHTML = boost1timer
             if (boost1timer == 0) {
+                totalboostactive = totalboostactive - 1
+                EL_boost13.innerHTML = (totalboostactive)
                 EL_totaldpc.style.color = 'white';
                 tdpc.innerHTML = (up1k+up2k+up3k+up4k+up5k+1)
                 boost1active = false
                 document.getElementById('boostno1').innerHTML = ""
                 testint4 = 60
+                document.getElementById('boostno1').innerHTML = testint4
                 }
             }  else {
                 EL_totaldpc.style.color = 'white';
+                document.getElementById('boostno1').innerHTML = testint4
             }
         if (boost2active === true) {
             for (let i = 0; i < 10; i++) {
                 sjekk()
               }
+            
             boost2timer = boost2timer - 1
             if (boost2timer == 0) {
+                totalboostactive -=1
+                EL_boost13.innerHTML = (totalboostactive)
                 boost2active = false
                 testint3 = 60
                 EL_boost2asd.style.color = 'white';
             }
         }
+        
         }
 
     function update2() {
@@ -503,7 +521,9 @@ function upgrade5() {
 
         localStorage.boost1timerST = boost1timer
         localStorage.boost2timerST = boost2timer
+        localStorage.test1ST = test1
         localStorage.test2ST = test2
+
 
         console.log("saved")
     }
@@ -565,6 +585,9 @@ function upgrade5() {
         uplv4.innerHTML = "Lvl. "+up4v
         uplv5.innerHTML = "Lvl. "+up5v
 
+        test1 = JSON.parse(localStorage.test1ST)
+        test2 = JSON.parse(localStorage.test2ST)
+
         console.log("loaded")
     }
 
@@ -610,10 +633,10 @@ function upgrade5() {
         }
     } 
 
-    
+    befor.innerHTML = ""
     
     function update_HTML(){
-        befor.innerHTML = "Aubergines: "+kjeks.toFixed(testint5)
+        
         dps13.innerHTML =  dps.toFixed(testint5)
 
         if (kjeks > up1cost-1) {
@@ -651,7 +674,7 @@ function upgrade5() {
             document.querySelector('#up5').style.opacity = opacitymin;
             document.querySelector('#dps5').style.opacity = opacitymin;
         }
-        if (up1v > 9) {
+        if (test1 == true) {
             document.querySelector('#boost1').style.opacity = "1";
         }
         if (!testint4 == 0) {
@@ -663,10 +686,9 @@ function upgrade5() {
         }   
         if (!testint3 == 0) {
             EL_boost1asd.style.color = 'white';
-            document.querySelector('#boost1').style.opacity = opacitymin;
+            document.querySelector('#boost2').style.opacity = opacitymin;
         } 
-
-        ettertall()     
+  
         EL_overskrift.innerHTML = kjeks + talletter1
     }
 
@@ -725,5 +747,7 @@ function upgrade5() {
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1 sek (1sek = 1000ms)
     intervalID1 = setInterval(update_HTML, 100) //kjører hvert 0,1sek
     intervalID2 = setInterval(update2, 100) //kjører hvert 0,1sek
+
+
 
     load()
