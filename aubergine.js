@@ -278,7 +278,7 @@ function upgrade5() {
                 vdpslv3 = vdpslv3 + 1
                 dpslv3.innerHTML = "Lvl. "+vdpslv3
                 bookam = true
-                EL_batakamGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/batakamGIF.gif")'
+                EL_batakamGIF1.style.backgroundImage = 'url("./Assets/GIF/batakamGIF.gif")'
                 update_HTML()
             } else {
                 document.querySelector('#dpsup3d').innerHTML = "Not enough Aubergines"
@@ -293,7 +293,7 @@ function upgrade5() {
                 vdpslv4 = vdpslv4 + 1
                 dpslv4.innerHTML = "Lvl. "+vdpslv4
                 booric = true
-                EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/ricardoGIF.gif")'
+                EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/GIF/ricardoGIF.gif")'
                 update_HTML()
             } else {
                 document.querySelector('#dpsup4d').innerHTML = "Not enough Aubergines"
@@ -389,8 +389,9 @@ function upgrade5() {
     function myTimer() {
         if (up1v > 9) {
             test1 = true
+            EL_boostup1d.innerHTML = ("")
         }
-        
+
         if (boost1active == true) {
             testint6 = 240
         }   else {
@@ -689,7 +690,7 @@ function upgrade5() {
             document.querySelector('#boost2').style.opacity = opacitymin;
         } 
   
-        EL_overskrift.innerHTML = kjeks + talletter1
+        EL_overskrift.innerHTML = kjeks.toFixed(testint5) + " Aubergines"
     }
 
     function goldenaubergine1() {
