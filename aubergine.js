@@ -10,6 +10,12 @@ var dps = 0
 var clickdamage = 1
 var realdpc = clickdamage
 
+//opacity settings
+const opacitymin = 0.7
+const opacitymax = 1
+
+
+var talletter1 = " Aubergines"
 
 //alt av boost variabler
 var goldonscreen = false
@@ -106,6 +112,9 @@ const EL_slider1 = document.querySelector('#sliderbox')
 
 const EL_ricardoGIF1 = document.querySelector('#dps4')
 const EL_batakamGIF1 = document.querySelector('#dps3')
+
+
+const EL_overskrift = document.querySelector('#overskrift')
 
 //clickdamage fra alle upgrades
 var up1k = 0
@@ -335,6 +344,7 @@ function upgrade5() {
 
     //klikk funksjonen    
     function sjekk() {
+        
         testint2 = testint2 + 1
         if (boost1active == true) {
             realdpc = clickdamage * 10
@@ -366,6 +376,8 @@ function upgrade5() {
         if (randtall == 500) {
             showgoldaubergine()
         }
+        EL_overskrift.innerHTML = kjeks
+        ettertall()
     }
     
     function myTimer() {
@@ -572,7 +584,31 @@ function upgrade5() {
         }
     }
 
-    
+    function ettertall() {
+        let kjekslocal = kjeks.toFixed(testint5)
+
+        if ((kjekslocal.toString().length) > 6) {
+            talletter1 = " Millioner"
+            if ((kjekslocal.toString().length) > 9) {
+                talletter1 = " Milliarder"
+                if ((kjekslocal.toString().length) > 12) {
+                    talletter1 = " Billioner"
+                    if ((kjekslocal.toString().length) > 15) {
+                        talletter1 = " Billiarder"
+                        if ((kjekslocal.toString().length) > 18) {
+                            talletter1 = " Trillioner"
+                            if ((kjekslocal.toString().length) > 21) {
+                                talletter1 = " Trilliarder"
+                                if ((kjekslocal.toString().length) > 24) {
+                                    talletter1 = " Kvadrillioner"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
 
     
     
@@ -584,42 +620,42 @@ function upgrade5() {
             document.querySelector('#up1').style.opacity = "1";
             document.querySelector('#dps1').style.opacity = "1";
         }   else {
-            document.querySelector('#up1').style.opacity = "0.6";
-            document.querySelector('#dps1').style.opacity = "0.6";
+            document.querySelector('#up1').style.opacity = opacitymin;
+            document.querySelector('#dps1').style.opacity = opacitymin;
         }
         if (kjeks > up2cost-1) {
             document.querySelector('#up2').style.opacity = "1";
             document.querySelector('#dps2').style.opacity = "1";
         }   else {
-            document.querySelector('#up2').style.opacity = "0.6";
-            document.querySelector('#dps2').style.opacity = "0.6";
+            document.querySelector('#up2').style.opacity = opacitymin;
+            document.querySelector('#dps2').style.opacity = opacitymin;
         }
         if (kjeks > up3cost-1) {
             document.querySelector('#up3').style.opacity = "1";
             document.querySelector('#dps3').style.opacity = "1";
         }   else {
-            document.querySelector('#up3').style.opacity = "0.6";
-            document.querySelector('#dps3').style.opacity = "0.6";
+            document.querySelector('#up3').style.opacity = opacitymin;
+            document.querySelector('#dps3').style.opacity = opacitymin;
         }
         if (kjeks > up4cost-1) {
             document.querySelector('#up4').style.opacity = "1";
             document.querySelector('#dps4').style.opacity = "1";
         }   else {
-            document.querySelector('#up4').style.opacity = "0.6";
-            document.querySelector('#dps4').style.opacity = "0.6";
+            document.querySelector('#up4').style.opacity = opacitymin;
+            document.querySelector('#dps4').style.opacity = opacitymin;
         }
         if (kjeks > up5cost-1) {
             document.querySelector('#up5').style.opacity = "1";
             document.querySelector('#dps5').style.opacity = "1";
         }   else {
-            document.querySelector('#up5').style.opacity = "0.6";
-            document.querySelector('#dps5').style.opacity = "0.6";
+            document.querySelector('#up5').style.opacity = opacitymin;
+            document.querySelector('#dps5').style.opacity = opacitymin;
         }
         if (up1v > 9) {
             document.querySelector('#boost1').style.opacity = "1";
         }
         if (!testint4 == 0) {
-            document.querySelector('#boost1').style.opacity = "0.6";
+            document.querySelector('#boost1').style.opacity = opacitymin;
         }
         
         if (up2v > 9) {
@@ -627,13 +663,11 @@ function upgrade5() {
         }   
         if (!testint3 == 0) {
             EL_boost1asd.style.color = 'white';
-            document.querySelector('#boost1').style.opacity = "0.6";
-
-
+            document.querySelector('#boost1').style.opacity = opacitymin;
         } 
-            
-        
 
+        ettertall()     
+        EL_overskrift.innerHTML = kjeks + talletter1
     }
 
     function goldenaubergine1() {
@@ -641,6 +675,8 @@ function upgrade5() {
         document.getElementById("goldaubergine").style.display = "none";
         update_HTML()
       }
+
+     
 
     function showgoldaubergine() {
         var x = Math.floor(Math.random() * (900 - 175 + 1)) + 100;
