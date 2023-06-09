@@ -382,7 +382,7 @@ function upgrade5() {
         if (randtall == 500) {
             showgoldaubergine()
         }
-        EL_overskrift.innerHTML = kjeks + " Aubergines"
+        EL_overskrift.innerHTML = kjeks.toFixed(testint5) + " Aubergines"
         
     }
     
