@@ -1,0 +1,44 @@
+body {
+    text-align: center;
+    background-color: green;
+}
+
+h1 {
+    font-family: sans-serif;
+}
+
+div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.hoved div {
+    border: solid;
+}
+
+.left {
+    width: 200px;
+    height: 400px;
+}
+
+.left img {
+    rotate: 50deg;
+}
+
+.right {
+    width: 200px;
+    height: 400px;
+}
+
+.right img {
+    rotate: -50deg;
+}
+
+.center {
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
