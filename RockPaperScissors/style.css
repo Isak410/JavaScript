@@ -5,6 +5,8 @@ body {
 
 h1 {
     font-family: sans-serif;
+    color: aquamarine;  
+    margin-top: 5px;
 }
 
 div {
@@ -21,6 +23,8 @@ div {
 .left {
     width: 200px;
     height: 400px;
+    justify-content: center;
+    align-items: center;
 }
 
 .left img {
@@ -30,10 +34,13 @@ div {
 .right {
     width: 200px;
     height: 400px;
+    justify-content: center;
+    align-items: center;
 }
 
 .right img {
     rotate: -50deg;
+    margin-right: 20px;
 }
 
 .center {
@@ -41,4 +48,29 @@ div {
     height: 400px;
     display: flex;
     flex-direction: column;
+}
+
+.bildeL {
+    width: 180px;
+    height: 280px;
+}
+
+.bildeR {
+    width: 180px;
+    height: 280px
+}
+
+#IMGL {
+    width: 100px;
+}
+
+#IMGR {
+    width: 100px;
+}
+
+#begin {
+    font-size: 1.3em;
+    background-color: aquamarine;
+    border: solid;
+    border-radius: 10px;
 }
