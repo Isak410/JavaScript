@@ -1,12 +1,19 @@
 body {
     text-align: center;
-    background-color: green;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
-    font-family: sans-serif;
-    color: aquamarine;  
-    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);  
+    margin: 5px;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 div {
@@ -14,6 +21,29 @@ div {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: rgb(25, 108, 191);
+}
+
+@keyframes move-it {
+    0% {
+      background-position: initial;
+    }
+    100% {
+      background-position: -350px 0px;
+    }
+  }
+
+@keyframes move-it-rev {
+    0% {
+      background-position: initial;
+    }
+    100% {
+      background-position: 350px 0px;
+    }
+  }
+
+.hoved {
+    width: fit-content;
 }
 
 .hoved div {
@@ -22,10 +52,21 @@ div {
 
 .left {
     width: 200px;
-    height: 400px;
+    height: 350px;
     justify-content: center;
     align-items: center;
-}
+    display: flex;
+    flex-direction: column;
+
+    background: repeating-linear-gradient(
+    45deg,
+    #3d93c2,
+    #388ab6 5%,
+    #255e7c 5%,
+    #255e7c 10%);
+    background-size: 100px 100px;
+    animation: move-it-rev 10s linear infinite;
+    }
 
 .left img {
     rotate: 50deg;
@@ -33,9 +74,18 @@ div {
 
 .right {
     width: 200px;
-    height: 400px;
+    height: 350px;
     justify-content: center;
     align-items: center;
+
+    background: repeating-linear-gradient(
+    135deg,
+    #3d93c2,
+    #388ab6 5%,
+    #255e7c 5%,
+    #255e7c 10%);
+    background-size: 100px 100px;
+    animation: move-it 10s linear infinite;
 }
 
 .right img {
@@ -45,19 +95,22 @@ div {
 
 .center {
     width: 200px;
-    height: 400px;
+    height: 350px;
     display: flex;
     flex-direction: column;
+    background-color: rgb(68, 128, 189);
 }
 
-.bildeL {
+#bildeL {
     width: 180px;
     height: 280px;
+    background-color: rgb(137, 129, 129);
 }
 
-.bildeR {
+#bildeR {
     width: 180px;
-    height: 280px
+    height: 280px;
+    background-color: rgb(137, 129, 129);
 }
 
 #IMGL {
@@ -70,7 +123,8 @@ div {
 
 #begin {
     font-size: 1.3em;
-    background-color: aquamarine;
+    background-color: rgb(153, 127, 255);
     border: solid;
     border-radius: 10px;
+    margin-bottom: 45px;
 }

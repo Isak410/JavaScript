@@ -16,6 +16,9 @@ var handR = 0
 var handMINUSL = 0
 var handMINUSR = 0
 
+//ticks
+var ticks = 0
+
 //Function som skal runne når man trykker på knappen
 function RPC() {
     //Define hvem som velger hva
@@ -46,25 +49,52 @@ function RPC() {
         console.log("R if funker ikke")
     }
 
+    //hva som skjer hvis venstre vinner
+    function venstreW () {
+        document.getElementById('bildeL').style.backgroundColor = 'green'
+        document.getElementById('bildeR').style.backgroundColor = 'red'
+        EL_svar.innerHTML = ("Venstre vant")
+    }
+
+    //hva som skjer hvis høyre vinner
+    function høyreW () {
+        document.getElementById('bildeR').style.backgroundColor = 'green'
+        document.getElementById('bildeL').style.backgroundColor = 'red'
+        EL_svar.innerHTML = ("Høyre vant")
+    }
+
+    //hva som skjer hvis det blir gjevnt
+    function gjevnt () {
+        EL_svar.innerHTML = ("Det ble gjevnt")
+        document.getElementById('bildeL').style.backgroundColor = 'gray'
+        document.getElementById('bildeR').style.backgroundColor = 'gray'
+    }
+
 
     //Calculate hvem som vinner
     if (handL > handR) {
-        EL_svar.innerHTML = ("Venstre vant")
+        venstreW()
     }
     if (handR > handL) {
-        EL_svar.innerHTML = ("Høyre vant")      
+        høyreW()     
     }
     if (handMINUSR == 2) {
-        EL_svar.innerHTML = ("Venstre vant")
+        venstreW()
     }
     if (handMINUSL == 2) {
-        EL_svar.innerHTML = ("Høyre vant")
+        høyreW()
     }
     if (handL-handR == 0) {
-        EL_svar.innerHTML = ("Gjevnt")
+        gjevnt()
     }
 
 }
 
+function myTimer() {
+    ticks++
+    console.log(ticks)
+}
+
 //hva som skal skje når man trykker på knappen
 EL_begin.addEventListener('click', RPC)
+IntervalID = setInterval(myTimer, 1000)
