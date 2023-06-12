@@ -16,7 +16,6 @@ const opacitymax = 1
 
 var totalboostactive = 0
 
-
 var talletter1 = " Aubergines"
 
 //alt av boost variabler
@@ -278,7 +277,7 @@ function upgrade5() {
                 vdpslv3 = vdpslv3 + 1
                 dpslv3.innerHTML = "Lvl. "+vdpslv3
                 bookam = true
-                EL_batakamGIF1.style.backgroundImage = 'url("./Assets/GIF/batakamGIF.gif")'
+                EL_batakamGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/batakamGIF.gif")'
                 update_HTML()
             } else {
                 document.querySelector('#dpsup3d').innerHTML = "Not enough Aubergines"
@@ -293,7 +292,7 @@ function upgrade5() {
                 vdpslv4 = vdpslv4 + 1
                 dpslv4.innerHTML = "Lvl. "+vdpslv4
                 booric = true
-                EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/GIF/ricardoGIF.gif")'
+                EL_ricardoGIF1.style.backgroundImage = 'url("./Assets/IMG/GIF/ricardoGIF.gif")'
                 update_HTML()
             } else {
                 document.querySelector('#dpsup4d').innerHTML = "Not enough Aubergines"
@@ -541,7 +540,6 @@ function upgrade5() {
         boost2timer = JSON.parse(localStorage.boost2timerST)
         test2 = JSON.parse(localStorage.test2ST)
         
-
         if (boost1active == true) {
             EL_boost1asd.style.color = 'yellow';
             EL_totaldpc.style.color = 'red';
@@ -700,7 +698,6 @@ function upgrade5() {
       }
 
      
-
     function showgoldaubergine() {
         var x = Math.floor(Math.random() * (900 - 175 + 1)) + 100;
         var y = Math.floor(Math.random() * (850 - 50 + 1)) + 50;
@@ -748,7 +745,6 @@ function upgrade5() {
     intervalID = setInterval(myTimer, 1000) //kjører hvert 1 sek (1sek = 1000ms)
     intervalID1 = setInterval(update_HTML, 100) //kjører hvert 0,1sek
     intervalID2 = setInterval(update2, 100) //kjører hvert 0,1sek
-
 
 
     load()
