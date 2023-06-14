@@ -39,8 +39,7 @@ function regnUt() {
     }
     }   else {
         EL_svar.innerHTML = ("For høyt tall💀")
-    }
-          
+    }   
 }
 
 function restartfunc() {
