@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+h1 {
+    font-size: 1.7em;
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 1.4em;
+    margin: 12px;
+}
+
+.altd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid darkcyan 3px;
+}
+
+#inn {
+    margin: 3px;
+    width: 162px;
+    height: 42px;
+    text-align: center;
+    background-color: darkcyan;
+    font-size: 1.5em;
+}
+
+#restart {
+    width: 170px;
+    background-color: darkcyan;
+}
+
+#submit {
+    width: 170px;
+    background-color: darkcyan;
+    margin-bottom: 3px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
