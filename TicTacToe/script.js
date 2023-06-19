@@ -14,7 +14,10 @@ const svar = document.querySelector('#svar')
 
 const tur = document.querySelector('#tur')
 
+const restart = document.querySelector('#restart')
+
 var testbool = false
+var testbool1 = false
 var turn = "x"
 var turtekst = "X"
 
@@ -47,36 +50,112 @@ const ovinner = 300
 function sjekkvinner() {
     if (slot1value+slot2value+slot3value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot1.style.backgroundColor = "green"
+        Slot2.style.backgroundColor = "green"
+        Slot3.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot4value+slot5value+slot6value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot4.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot6.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot7value+slot8value+slot9value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot7.style.backgroundColor = "green"
+        Slot8.style.backgroundColor = "green"
+        Slot9.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot1value+slot4value+slot7value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot1.style.backgroundColor = "green"
+        Slot4.style.backgroundColor = "green"
+        Slot7.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot2value+slot5value+slot8value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot2.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot8.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot3value+slot6value+slot9value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot3.style.backgroundColor = "green"
+        Slot6.style.backgroundColor = "green"
+        Slot9.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot1value+slot5value+slot9value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot1.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot9.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot3value+slot5value+slot7value == xvinner) {
         svar.innerHTML = "X vant"
+        Slot3.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot7.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot1value+slot2value+slot3value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot1.style.backgroundColor = "green"
+        Slot2.style.backgroundColor = "green"
+        Slot3.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot4value+slot5value+slot6value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot4.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot6.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot7value+slot8value+slot9value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot7.style.backgroundColor = "green"
+        Slot8.style.backgroundColor = "green"
+        Slot9.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot1value+slot4value+slot7value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot1.style.backgroundColor = "green"
+        Slot4.style.backgroundColor = "green"
+        Slot7.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot2value+slot5value+slot8value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot2.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot8.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot3value+slot6value+slot9value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot3.style.backgroundColor = "green"
+        Slot6.style.backgroundColor = "green"
+        Slot9.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot1value+slot5value+slot9value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot1.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot9.style.backgroundColor = "green"
+        testbool1 = true
     } else if (slot3value+slot5value+slot7value == ovinner) {
         svar.innerHTML = "O vant"
+        Slot3.style.backgroundColor = "green"
+        Slot5.style.backgroundColor = "green"
+        Slot7.style.backgroundColor = "green"
+        testbool1 = true
+    }
+    if (testbool1 == true) {
+        tur.style.opacity = "0%"
+        pressed1 = true
+        pressed2 = true
+        pressed3 = true
+        pressed4 = true
+        pressed5 = true
+        pressed6 = true
+        pressed7 = true
+        pressed8 = true
+        pressed9 = true
     }
 }
 
@@ -240,6 +319,12 @@ function trykk9() {
     }
 }
 
+function restartfunc() {
+    location.reload();
+}
+
+document.firstElementChild.style.zoom = "reset";
+
 
 
 Slot1.addEventListener('click', trykk1)
@@ -253,3 +338,5 @@ Slot6.addEventListener('click', trykk6)
 Slot7.addEventListener('click', trykk7)
 Slot8.addEventListener('click', trykk8)
 Slot9.addEventListener('click', trykk9)
+
+restart.addEventListener('click', restartfunc)
