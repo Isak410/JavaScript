@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.container {
+    width: 460px;
+    height: 472px;
+    text-align: center;
+    font-size: 4em;
+}
+
+h1 {
+    margin: 0;
+}
+
+.rad1 {
+    width: 456px;
+    height: 152px;
+    display: flex;
+    flex-direction: row;
+}
+
+.rad2 {
+    width: 456px;
+    height: 152px;
+    display: flex;
+    flex-direction: row;
+}
+
+.rad3 {
+    width: 456px;
+    height: 152px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.Slots {
+    width: 150px;
+    height: 150px;
+    border: solid;
+    background-image: url(Assets/IMG/placeholder.jpg);
+    background-size: 150px;
+}
